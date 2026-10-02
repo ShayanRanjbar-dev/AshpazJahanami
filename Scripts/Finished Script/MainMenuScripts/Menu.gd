@@ -10,6 +10,9 @@ var socialFollow : Dictionary [String , bool]= {
 	"Telegram" : false
 }
 
+func _ready() -> void:
+	BackGroundMusic.PlayNextTrack()
+	
 func changeMenu(menu : MarginContainer) -> void:
 	UiSoundManager.PlayUiSound(UiSoundManager.uiOpenSFX)
 	menu.show()

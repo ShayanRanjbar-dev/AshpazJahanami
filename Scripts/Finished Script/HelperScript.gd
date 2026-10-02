@@ -2,7 +2,7 @@ class_name HelperScript
 
 const SceneList : Dictionary[String,String] = {
 	"Intro" : "res://Scenes/Finished Scenes/Intro.tscn" ,
-	"MainMenu" : "res://Scenes/Finished Scenes/MainMenu.tscn" ,
+	"MainMenu" : "res://Scenes/Finished Scenes/main_menu.scn" ,
 	"GameScene" : "res://Scenes/Finished Scenes/GameScene.tscn"
 }
 const TweenLeft : Vector2 = Vector2.LEFT
