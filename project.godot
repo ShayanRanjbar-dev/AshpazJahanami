@@ -1,0 +1,105 @@
+; Engine configuration file.
+; It's best edited using the editor UI and not directly,
+; since the parameters that go here are not all obvious.
+;
+; Format:
+;   [section] ; section goes between []
+;   param=value ; assign values to parameters
+
+config_version=5
+
+[animation]
+
+compatibility/default_parent_skeleton_in_mesh_instance_3d=true
+
+[application]
+
+config/name="Hell's Chef"
+run/main_scene="uid://5fm6fb2o4up0"
+config/quit_on_go_back=false
+config/features=PackedStringArray("4.7", "GL Compatibility")
+boot_splash/bg_color=Color(0, 0, 0, 1)
+boot_splash/show_image=false
+boot_splash/stretch_mode=0
+boot_splash/image="uid://nv6n8sjf6xc2"
+config/icon="uid://c04kfevkk8luc"
+
+[audio]
+
+manager/sound/bus="Sound"
+manager/sound/pool_1D_size=16
+manager/sound/pool_2D_size=16
+manager/sound/pool_3D_size=16
+manager/sound/max_polyphony=32
+manager/music/bus="Music"
+
+[autoload]
+
+AdiveryManager="*res://Scripts/Finished Script/AdiveryScene.gd"
+AchievementManager="*res://addons/milestone/autoload/achievement_manager.gd"
+Loading="*res://addons/loading/loading.tscn"
+UiSoundManager="*res://Scenes/Finished Scenes/Tools/UiSoundManager.tscn"
+BackGroundMusic="*res://Scenes/Finished Scenes/BackGroundMusic.tscn"
+
+[debug]
+
+gdscript/warnings/unused_signal=0
+gdscript/warnings/standalone_ternary=0
+
+[display]
+
+window/size/viewport_width=1920
+window/size/viewport_height=1080
+window/size/mode=3
+window/stretch/mode="canvas_items"
+window/stretch/aspect="expand"
+
+[editor]
+
+naming/default_signal_callback_name="{SignalName}"
+naming/default_signal_callback_to_self_name="On{signal_name}"
+
+[editor_plugins]
+
+enabled=PackedStringArray("res://addons/SmoothScroll/plugin.cfg", "res://addons/adivery/plugin.cfg", "res://addons/cables/plugin.cfg", "res://addons/milestone/plugin.cfg", "res://addons/script-ide/plugin.cfg", "res://addons/virtual_joystick/plugin.cfg")
+
+[global_group]
+
+player=""
+collectible=""
+Enemy=""
+
+[input_devices]
+
+pointing/emulate_touch_from_mouse=true
+pointing/size/mode=0
+pointing/stretch/aspect="keep"
+pointing/stretch/mode="viewport"
+
+[layer_names]
+
+2d_physics/layer_1="World Collisions"
+2d_physics/layer_2="Enemy Hitbox Collisions"
+2d_physics/layer_3="Enemy Hurtbox Collisions"
+2d_physics/layer_4="Player Hurtbox Collisions"
+
+[maaacks_music_controller]
+
+disable_update_check=false
+
+[maaacks_scene_loader]
+
+disable_update_check=false
+
+[milestone]
+
+general/achievements_path="res://Achievements/"
+debug/print_errors=true
+debug/print_output=false
+general/save_as_json=true
+
+[rendering]
+
+textures/canvas_textures/default_texture_filter=0
+renderer/rendering_method="mobile"
+textures/vram_compression/import_etc2_astc=true

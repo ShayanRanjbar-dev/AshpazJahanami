@@ -1,0 +1,19 @@
+[remap]
+
+importer="oggvorbisstr"
+type="AudioStreamOggVorbis"
+uid="uid://vordm7jbe4dy"
+path="res://.godot/imported/Roll Credits.ogg-51d4830e08e11f1b5cfb34cf9b477ecd.oggvorbisstr"
+
+[deps]
+
+source_file="res://Assets/MUSIC/Roll Credits.ogg"
+dest_files=["res://.godot/imported/Roll Credits.ogg-51d4830e08e11f1b5cfb34cf9b477ecd.oggvorbisstr"]
+
+[params]
+
+loop=false
+loop_offset=0
+bpm=0
+beat_count=0
+bar_beats=4

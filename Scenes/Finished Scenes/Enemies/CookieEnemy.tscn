@@ -1,0 +1,43 @@
+[gd_scene load_steps=8 format=3 uid="uid://cy0vas5mvaevg"]
+
+[ext_resource type="PackedScene" uid="uid://cqj3mrtbv3h1o" path="res://Scenes/Finished Scenes/Enemies/BaseShooterEnemy.tscn" id="1_y4o3l"]
+[ext_resource type="PackedScene" uid="uid://b0gg0ybbdl5hh" path="res://Scenes/Finished Scenes/Enemies/CookieBullet.tscn" id="2_kbfdn"]
+[ext_resource type="Shader" uid="uid://dohy3mk254ujm" path="res://Shaders/HitFlashShader.gdshader" id="3_kbfdn"]
+
+[sub_resource type="CircleShape2D" id="CircleShape2D_ur8bf"]
+radius = 32.0
+
+[sub_resource type="CircleShape2D" id="CircleShape2D_l2rrg"]
+radius = 30.0
+
+[sub_resource type="CircleShape2D" id="CircleShape2D_8xrwp"]
+radius = 32.0
+
+[sub_resource type="ShaderMaterial" id="ShaderMaterial_6hpt3"]
+resource_local_to_scene = true
+shader = ExtResource("3_kbfdn")
+shader_parameter/flashValue = 0.0
+shader_parameter/flashColor = Color(1, 1, 1, 1)
+
+[node name="Cookie Enemy" instance=ExtResource("1_y4o3l")]
+bulletScene = ExtResource("2_kbfdn")
+fireRate = 3.75
+bulletPerSecondMax = 2
+cooldownTimeMax = 2.0
+fullHealth = 40
+damage = 10
+speed = 150
+knockbackStrength = 100
+
+[node name="Enemy Collision" parent="." index="1"]
+shape = SubResource("CircleShape2D_ur8bf")
+
+[node name="CollisionShape2D" parent="Enemy Hitbox" index="0"]
+shape = SubResource("CircleShape2D_l2rrg")
+
+[node name="CollisionShape2D" parent="Enemy Hurtbox" index="0"]
+shape = SubResource("CircleShape2D_8xrwp")
+
+[node name="Enemy Sprite" parent="." index="4"]
+material = SubResource("ShaderMaterial_6hpt3")
+region_rect = Rect2(194, 2, 60, 60)

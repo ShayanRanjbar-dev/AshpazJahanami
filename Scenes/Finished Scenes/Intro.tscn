@@ -1,0 +1,319 @@
+[gd_scene load_steps=14 format=3 uid="uid://ckh6jwsyw5h15"]
+
+[ext_resource type="Script" uid="uid://snv2flpidgl" path="res://Scripts/Finished Script/IntroScripts/Intro.gd" id="1_f206c"]
+[ext_resource type="Texture2D" uid="uid://w6snhq668l4" path="res://Game Art/LANDSHARK LOGO NO BG INSTA TELEGRAM.png" id="2_r2rhv"]
+[ext_resource type="FontFile" uid="uid://6ks1p1rjslef" path="res://Assets/FONT/Arapix.otf" id="3_a4ao3"]
+
+[sub_resource type="LabelSettings" id="LabelSettings_1nljx"]
+font = ExtResource("3_a4ao3")
+font_size = 64
+
+[sub_resource type="StyleBoxFlat" id="StyleBoxFlat_hwjxs"]
+bg_color = Color(0, 0, 0, 0.705882)
+border_width_left = 8
+border_width_top = 8
+border_width_right = 8
+border_width_bottom = 8
+border_color = Color(1, 1, 1, 1)
+corner_radius_top_left = 5
+corner_radius_top_right = 5
+corner_radius_bottom_right = 5
+corner_radius_bottom_left = 5
+expand_margin_right = 3.0
+shadow_size = 2
+
+[sub_resource type="LabelSettings" id="LabelSettings_rsiac"]
+font = ExtResource("3_a4ao3")
+font_size = 64
+outline_size = 8
+outline_color = Color(0, 0, 0, 1)
+
+[sub_resource type="StyleBoxFlat" id="StyleBoxFlat_3bmuq"]
+bg_color = Color(0.310617, 0.310617, 0.310616, 1)
+border_width_left = 6
+border_width_top = 4
+border_width_right = 6
+border_width_bottom = 4
+border_color = Color(0.227451, 0.227451, 0.227451, 1)
+corner_radius_top_left = 5
+corner_radius_top_right = 5
+corner_radius_bottom_right = 5
+corner_radius_bottom_left = 5
+expand_margin_bottom = 3.0
+
+[sub_resource type="StyleBoxFlat" id="StyleBoxFlat_nn7w8"]
+bg_color = Color(0, 0, 0, 1)
+border_width_left = 6
+border_width_top = 4
+border_width_right = 6
+border_width_bottom = 10
+border_color = Color(0.909804, 0.909804, 0.909804, 1)
+corner_radius_top_left = 5
+corner_radius_top_right = 5
+corner_radius_bottom_right = 5
+corner_radius_bottom_left = 5
+expand_margin_bottom = 4.0
+
+[sub_resource type="StyleBoxFlat" id="StyleBoxFlat_geirw"]
+bg_color = Color(0.310617, 0.310617, 0.310616, 1)
+border_width_left = 6
+border_width_top = 4
+border_width_right = 6
+border_width_bottom = 4
+border_color = Color(0.227451, 0.227451, 0.227451, 1)
+corner_radius_top_left = 5
+corner_radius_top_right = 5
+corner_radius_bottom_right = 5
+corner_radius_bottom_left = 5
+expand_margin_bottom = 3.0
+
+[sub_resource type="StyleBoxFlat" id="StyleBoxFlat_rsiac"]
+bg_color = Color(0, 0, 0, 1)
+border_width_left = 6
+border_width_top = 4
+border_width_right = 6
+border_width_bottom = 10
+border_color = Color(0.909804, 0.909804, 0.909804, 1)
+corner_radius_top_left = 5
+corner_radius_top_right = 5
+corner_radius_bottom_right = 5
+corner_radius_bottom_left = 5
+expand_margin_bottom = 4.0
+
+[sub_resource type="Animation" id="Animation_alxvg"]
+length = 0.001
+tracks/0/type = "value"
+tracks/0/imported = false
+tracks/0/enabled = true
+tracks/0/path = NodePath("Logo:self_modulate")
+tracks/0/interp = 1
+tracks/0/loop_wrap = true
+tracks/0/keys = {
+"times": PackedFloat32Array(0),
+"transitions": PackedFloat32Array(1),
+"update": 0,
+"values": [Color(1, 1, 1, 0)]
+}
+tracks/1/type = "value"
+tracks/1/imported = false
+tracks/1/enabled = true
+tracks/1/path = NodePath("Logo:scale")
+tracks/1/interp = 1
+tracks/1/loop_wrap = true
+tracks/1/keys = {
+"times": PackedFloat32Array(0),
+"transitions": PackedFloat32Array(1),
+"update": 0,
+"values": [Vector2(1, 1)]
+}
+tracks/2/type = "value"
+tracks/2/imported = false
+tracks/2/enabled = true
+tracks/2/path = NodePath("Loading Text:visible")
+tracks/2/interp = 1
+tracks/2/loop_wrap = true
+tracks/2/keys = {
+"times": PackedFloat32Array(0),
+"transitions": PackedFloat32Array(1),
+"update": 1,
+"values": [false]
+}
+
+[sub_resource type="Animation" id="Animation_duh1u"]
+resource_name = "intro logo"
+length = 1.75
+tracks/0/type = "value"
+tracks/0/imported = false
+tracks/0/enabled = true
+tracks/0/path = NodePath("Logo:self_modulate")
+tracks/0/interp = 1
+tracks/0/loop_wrap = true
+tracks/0/keys = {
+"times": PackedFloat32Array(0.233333, 0.566667, 1, 1.46667),
+"transitions": PackedFloat32Array(0.5, -2, -0.5, 2),
+"update": 0,
+"values": [Color(1, 1, 1, 0), Color(1, 1, 1, 1), Color(1, 1, 1, 1), Color(1, 1, 1, 0)]
+}
+tracks/1/type = "value"
+tracks/1/imported = false
+tracks/1/enabled = true
+tracks/1/path = NodePath("Logo:scale")
+tracks/1/interp = 1
+tracks/1/loop_wrap = true
+tracks/1/keys = {
+"times": PackedFloat32Array(0, 1.75),
+"transitions": PackedFloat32Array(3, 2.37842),
+"update": 0,
+"values": [Vector2(1.15, 1.15), Vector2(1.35, 1.35)]
+}
+tracks/2/type = "value"
+tracks/2/imported = false
+tracks/2/enabled = true
+tracks/2/path = NodePath("Loading Text:visible")
+tracks/2/interp = 1
+tracks/2/loop_wrap = true
+tracks/2/keys = {
+"times": PackedFloat32Array(0, 1.54517),
+"transitions": PackedFloat32Array(1, 1),
+"update": 1,
+"values": [false, true]
+}
+tracks/3/type = "method"
+tracks/3/imported = false
+tracks/3/enabled = true
+tracks/3/path = NodePath(".")
+tracks/3/interp = 1
+tracks/3/loop_wrap = true
+tracks/3/keys = {
+"times": PackedFloat32Array(1.46667),
+"transitions": PackedFloat32Array(1),
+"values": [{
+"args": [],
+"method": &"CheckInternetConnection"
+}]
+}
+
+[sub_resource type="AnimationLibrary" id="AnimationLibrary_geirw"]
+_data = {
+&"RESET": SubResource("Animation_alxvg"),
+&"intro logo": SubResource("Animation_duh1u")
+}
+
+[node name="Intro" type="Control" node_paths=PackedStringArray("httpRequest", "loadingText", "networkRetry")]
+layout_mode = 3
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+script = ExtResource("1_f206c")
+httpRequest = NodePath("HTTPRequest")
+loadingText = NodePath("Loading Text")
+networkRetry = NodePath("HTTP Request Retry")
+
+[node name="Background" type="ColorRect" parent="."]
+layout_mode = 1
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+color = Color(0, 0, 0, 1)
+
+[node name="Logo" type="TextureRect" parent="."]
+self_modulate = Color(1, 1, 1, 0)
+layout_mode = 1
+anchors_preset = 8
+anchor_left = 0.5
+anchor_top = 0.5
+anchor_right = 0.5
+anchor_bottom = 0.5
+offset_left = -960.0
+offset_top = -540.0
+offset_right = 960.0
+offset_bottom = 540.0
+grow_horizontal = 2
+grow_vertical = 2
+pivot_offset = Vector2(960, 540)
+texture = ExtResource("2_r2rhv")
+stretch_mode = 1
+
+[node name="Loading Text" type="Label" parent="."]
+visible = false
+layout_mode = 1
+anchors_preset = 3
+anchor_left = 1.0
+anchor_top = 1.0
+anchor_right = 1.0
+anchor_bottom = 1.0
+offset_left = -378.0
+offset_top = -128.0
+offset_right = -64.0
+offset_bottom = -64.0
+grow_horizontal = 0
+grow_vertical = 0
+text = "در حال بارگذاری...."
+label_settings = SubResource("LabelSettings_1nljx")
+
+[node name="HTTP Request Retry" type="PanelContainer" parent="."]
+visible = false
+custom_minimum_size = Vector2(960, 405)
+layout_mode = 1
+anchors_preset = 8
+anchor_left = 0.5
+anchor_top = 0.5
+anchor_right = 0.5
+anchor_bottom = 0.5
+offset_left = -480.0
+offset_top = -202.5
+offset_right = 480.0
+offset_bottom = 202.5
+grow_horizontal = 2
+grow_vertical = 2
+pivot_offset = Vector2(480, 202.5)
+theme_override_styles/panel = SubResource("StyleBoxFlat_hwjxs")
+
+[node name="HTTP Request Retry Container Vertical" type="VBoxContainer" parent="HTTP Request Retry"]
+layout_mode = 2
+alignment = 1
+
+[node name="Network Retry Text Container Horizontal" type="HBoxContainer" parent="HTTP Request Retry/HTTP Request Retry Container Vertical"]
+layout_mode = 2
+size_flags_horizontal = 4
+size_flags_vertical = 4
+alignment = 1
+
+[node name="Network Retry Text" type="Label" parent="HTTP Request Retry/HTTP Request Retry Container Vertical/Network Retry Text Container Horizontal"]
+layout_mode = 2
+text = "خطا ! شما به اینترنت متصل نیستید."
+label_settings = SubResource("LabelSettings_rsiac")
+
+[node name="Control2" type="Control" parent="HTTP Request Retry/HTTP Request Retry Container Vertical"]
+custom_minimum_size = Vector2(0, 128)
+layout_mode = 2
+size_flags_horizontal = 4
+size_flags_vertical = 4
+
+[node name="Http Buttons Container Horizontal" type="HBoxContainer" parent="HTTP Request Retry/HTTP Request Retry Container Vertical"]
+layout_mode = 2
+size_flags_horizontal = 4
+size_flags_vertical = 4
+alignment = 1
+
+[node name="Exit Button" type="Button" parent="HTTP Request Retry/HTTP Request Retry Container Vertical/Http Buttons Container Horizontal"]
+custom_minimum_size = Vector2(192, 64)
+layout_mode = 2
+size_flags_horizontal = 4
+size_flags_vertical = 4
+theme_override_fonts/font = ExtResource("3_a4ao3")
+theme_override_font_sizes/font_size = 48
+theme_override_styles/hover = SubResource("StyleBoxFlat_3bmuq")
+theme_override_styles/normal = SubResource("StyleBoxFlat_nn7w8")
+text = "خروج"
+
+[node name="Control" type="Control" parent="HTTP Request Retry/HTTP Request Retry Container Vertical/Http Buttons Container Horizontal"]
+custom_minimum_size = Vector2(128, 0)
+layout_mode = 2
+
+[node name="Retry Button" type="Button" parent="HTTP Request Retry/HTTP Request Retry Container Vertical/Http Buttons Container Horizontal"]
+custom_minimum_size = Vector2(192, 64)
+layout_mode = 2
+size_flags_horizontal = 4
+size_flags_vertical = 4
+theme_override_fonts/font = ExtResource("3_a4ao3")
+theme_override_font_sizes/font_size = 48
+theme_override_styles/hover = SubResource("StyleBoxFlat_geirw")
+theme_override_styles/normal = SubResource("StyleBoxFlat_rsiac")
+text = "تلاش مجدد"
+
+[node name="HTTPRequest" type="HTTPRequest" parent="."]
+
+[node name="AnimationPlayer" type="AnimationPlayer" parent="."]
+libraries = {
+&"": SubResource("AnimationLibrary_geirw")
+}
+autoplay = "intro logo"
+
+[connection signal="pressed" from="HTTP Request Retry/HTTP Request Retry Container Vertical/Http Buttons Container Horizontal/Exit Button" to="." method="ExitButtonPressed"]
+[connection signal="pressed" from="HTTP Request Retry/HTTP Request Retry Container Vertical/Http Buttons Container Horizontal/Retry Button" to="." method="RetryButtonPressed"]
+[connection signal="request_completed" from="HTTPRequest" to="." method="HTTPRequestCompleted"]

@@ -1,0 +1,32 @@
+[gd_scene load_steps=6 format=3 uid="uid://d3d082b7ywiya"]
+
+[ext_resource type="PackedScene" uid="uid://crwp85f0kgjuu" path="res://Scenes/Finished Scenes/Enemies/BaseWanderEnemy.tscn" id="1_my7f7"]
+[ext_resource type="Script" uid="uid://dksujcmjjo7r6" path="res://Scripts/Finished Script/EnemyHealerAi.gd" id="2_myqy6"]
+[ext_resource type="Shader" uid="uid://dohy3mk254ujm" path="res://Shaders/HitFlashShader.gdshader" id="3_fcprp"]
+[ext_resource type="AudioStream" uid="uid://cdngxgogv4ay" path="res://Assets/SFX/Enemy Healer SFX.wav" id="4_p7ipf"]
+
+[sub_resource type="ShaderMaterial" id="ShaderMaterial_8kg7k"]
+resource_local_to_scene = true
+shader = ExtResource("3_fcprp")
+shader_parameter/flashValue = 0.0
+shader_parameter/flashColor = Color(1, 1, 1, 1)
+
+[node name="Base Healer Enemy" node_paths=PackedStringArray("enemyHealbox", "enemyHealerSFX") instance=ExtResource("1_my7f7")]
+script = ExtResource("2_myqy6")
+enemyHealbox = NodePath("ShapeCast2D")
+enemyHealerSFX = NodePath("Enemy Healer SFX")
+
+[node name="ShapeCast2D" type="ShapeCast2D" parent="." index="3"]
+enabled = false
+target_position = Vector2(0, 0)
+collision_mask = 2
+collide_with_areas = true
+collide_with_bodies = false
+
+[node name="Enemy Sprite" parent="." index="4"]
+material = SubResource("ShaderMaterial_8kg7k")
+
+[node name="Enemy Healer SFX" type="AudioStreamPlayer2D" parent="." index="5"]
+stream = ExtResource("4_p7ipf")
+volume_db = 10.0
+bus = &"SoundEffects"

@@ -1,0 +1,18 @@
+[gd_resource type="Resource" script_class="WeaponData" load_steps=5 format=3 uid="uid://chko64rtnsnrk"]
+
+[ext_resource type="Script" uid="uid://bpnrhe66or36n" path="res://Resources/WeaponItems/_WeaponData.gd" id="1_5yjd3"]
+[ext_resource type="PackedScene" uid="uid://bef2n5wrpfh6n" path="res://Scenes/Finished Scenes/Weapons/Plate.tscn" id="1_nkbk0"]
+[ext_resource type="Texture2D" uid="uid://27ah12lu6b3x" path="res://Assets/PNG/Plate.png" id="2_0bdnd"]
+[ext_resource type="Resource" uid="uid://cqq25rkof81qn" path="res://Achievements/buy_plate.tres" id="2_ipl20"]
+
+[resource]
+script = ExtResource("1_5yjd3")
+Name = "بشقاب"
+WeaponTexture = ExtResource("2_0bdnd")
+Scene = ExtResource("1_nkbk0")
+Type = "CloseRange"
+Damage = 25
+BuyPrice = 12
+SellPrice = 7
+WeaponAchievement = ExtResource("2_ipl20")
+metadata/_custom_type_script = "uid://bpnrhe66or36n"

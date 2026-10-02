@@ -1,0 +1,38 @@
+[gd_scene load_steps=7 format=3 uid="uid://bpj0d0bwcex5y"]
+
+[ext_resource type="PackedScene" uid="uid://dfcdi2glvvgda" path="res://Scenes/Finished Scenes/Enemies/BaseFollowerEnemy.tscn" id="1_gt7mq"]
+[ext_resource type="Shader" uid="uid://dohy3mk254ujm" path="res://Shaders/HitFlashShader.gdshader" id="3_sw7v4"]
+
+[sub_resource type="CircleShape2D" id="CircleShape2D_s2qky"]
+radius = 48.0
+
+[sub_resource type="CircleShape2D" id="CircleShape2D_sw7v4"]
+radius = 40.0
+
+[sub_resource type="CircleShape2D" id="CircleShape2D_be4v2"]
+radius = 48.0
+
+[sub_resource type="ShaderMaterial" id="ShaderMaterial_4llis"]
+resource_local_to_scene = true
+shader = ExtResource("3_sw7v4")
+shader_parameter/flashValue = 0.0
+shader_parameter/flashColor = Color(1, 1, 1, 1)
+
+[node name="Burger Enemy" instance=ExtResource("1_gt7mq")]
+fullHealth = 100
+damage = 20
+speed = 100
+knockbackStrength = 150
+
+[node name="Enemy Collision" parent="." index="0"]
+shape = SubResource("CircleShape2D_s2qky")
+
+[node name="CollisionShape2D" parent="Enemy Hitbox" index="0"]
+shape = SubResource("CircleShape2D_sw7v4")
+
+[node name="CollisionShape2D" parent="Enemy Hurtbox" index="0"]
+shape = SubResource("CircleShape2D_be4v2")
+
+[node name="Enemy Sprite" parent="." index="3"]
+material = SubResource("ShaderMaterial_4llis")
+region_rect = Rect2(21, 88, 88, 80)

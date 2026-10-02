@@ -1,0 +1,127 @@
+[gd_scene format=3 uid="uid://5pqf8e5hoydx"]
+
+[ext_resource type="StyleBox" uid="uid://csove8g8ixs3x" path="res://Themes/UnSelectedPanelContainer.tres" id="1_in4jr"]
+[ext_resource type="Script" uid="uid://cdcsdrwp8gmnp" path="res://Scripts/Finished Script/Custom Class Scripts/WeaponSelectionContainer.gd" id="1_qj4bf"]
+[ext_resource type="FontFile" uid="uid://6ks1p1rjslef" path="res://Assets/FONT/Arapix.otf" id="1_v8eot"]
+[ext_resource type="StyleBox" uid="uid://svhxrdialvtr" path="res://Themes/SelectedPanelContainer.tres" id="3_k8pdc"]
+[ext_resource type="StyleBox" uid="uid://di22yaseqqjkf" path="res://Themes/LockedPanelContainer.tres" id="4_pi4iu"]
+[ext_resource type="FontFile" uid="uid://dc87qed1m0283" path="res://Themes/ArapixRitchTextLableFont.tres" id="5_0xqsk"]
+[ext_resource type="FontFile" uid="uid://c1w3machijxa2" path="res://Themes/EditundoRitchTextLableFont.tres" id="6_76i8h"]
+
+[sub_resource type="LabelSettings" id="LabelSettings_7lk5y"]
+font = ExtResource("1_v8eot")
+font_size = 64
+outline_size = 5
+outline_color = Color(0, 0, 0, 1)
+shadow_size = 14
+shadow_color = Color(0, 0, 0, 0.717647)
+shadow_offset = Vector2(1, 1.45)
+
+[sub_resource type="StyleBoxLine" id="StyleBoxLine_dt4ib"]
+color = Color(1, 1, 1, 1)
+grow_begin = 14.0
+grow_end = 14.0
+thickness = 4
+
+[sub_resource type="StyleBoxLine" id="StyleBoxLine_jp0x3"]
+color = Color(1, 1, 1, 1)
+grow_begin = 14.0
+grow_end = 14.0
+thickness = 4
+
+[sub_resource type="StyleBoxFlat" id="StyleBoxFlat_0ok57"]
+content_margin_left = 16.0
+content_margin_top = 16.0
+content_margin_right = 16.0
+content_margin_bottom = 16.0
+bg_color = Color(1, 1, 1, 1)
+border_width_left = 6
+border_width_top = 8
+border_width_right = 8
+border_width_bottom = 8
+border_color = Color(0.662745, 0.662745, 0.662745, 1)
+corner_radius_top_left = 32
+corner_radius_top_right = 32
+corner_radius_bottom_right = 32
+corner_radius_bottom_left = 32
+
+[sub_resource type="StyleBoxEmpty" id="StyleBoxEmpty_8nc2n"]
+
+[node name="Weapon Selection Container" type="PanelContainer" unique_id=176233028]
+offset_right = 288.0
+offset_bottom = 650.0
+mouse_filter = 1
+theme_override_styles/panel = ExtResource("1_in4jr")
+script = ExtResource("1_qj4bf")
+unselected = ExtResource("1_in4jr")
+selected = ExtResource("3_k8pdc")
+locked = ExtResource("4_pi4iu")
+mainFont = ExtResource("5_0xqsk")
+numberFont = ExtResource("6_76i8h")
+
+[node name="Weapon  Container Vertical" type="VBoxContainer" parent="." unique_id=32785961]
+layout_mode = 2
+size_flags_horizontal = 4
+size_flags_vertical = 4
+theme_override_constants/separation = 16
+
+[node name="Weapon Name Text" type="Label" parent="Weapon  Container Vertical" unique_id=309970321]
+layout_mode = 2
+size_flags_horizontal = 4
+text = "نام سلاح"
+label_settings = SubResource("LabelSettings_7lk5y")
+horizontal_alignment = 1
+vertical_alignment = 1
+
+[node name="Horzontal Line Break" type="HSeparator" parent="Weapon  Container Vertical" unique_id=1401947108]
+layout_mode = 2
+size_flags_vertical = 4
+mouse_filter = 1
+theme_override_styles/separator = SubResource("StyleBoxLine_dt4ib")
+
+[node name="Weapon Texture" type="TextureRect" parent="Weapon  Container Vertical" unique_id=523770417]
+custom_minimum_size = Vector2(256, 256)
+layout_mode = 2
+size_flags_horizontal = 4
+size_flags_vertical = 4
+
+[node name="Horzontal Line Break2" type="HSeparator" parent="Weapon  Container Vertical" unique_id=314335999]
+layout_mode = 2
+size_flags_vertical = 4
+mouse_filter = 1
+theme_override_styles/separator = SubResource("StyleBoxLine_jp0x3")
+
+[node name="Weapon Ability Text" type="RichTextLabel" parent="Weapon  Container Vertical" unique_id=897954100]
+custom_minimum_size = Vector2(302, 150)
+layout_mode = 2
+mouse_filter = 2
+bbcode_enabled = true
+text = "سلاح نزدیک زن
+مقدار آسیب 0"
+fit_content = true
+scroll_active = false
+horizontal_alignment = 1
+vertical_alignment = 1
+
+[node name="Horzontal Line Break3" type="HSeparator" parent="Weapon  Container Vertical" unique_id=1183991359]
+layout_mode = 2
+size_flags_vertical = 4
+mouse_filter = 1
+theme_override_styles/separator = SubResource("StyleBoxLine_jp0x3")
+
+[node name="Weapon Selection Button" type="Button" parent="Weapon  Container Vertical" unique_id=642905262]
+layout_mode = 2
+size_flags_horizontal = 4
+size_flags_vertical = 4
+theme_override_colors/font_color = Color(0, 0, 0, 1)
+theme_override_colors/font_focus_color = Color(0, 0, 0, 1)
+theme_override_colors/font_pressed_color = Color(1, 1, 1, 1)
+theme_override_colors/font_hover_color = Color(0, 0, 0, 1)
+theme_override_fonts/font = ExtResource("1_v8eot")
+theme_override_font_sizes/font_size = 56
+theme_override_styles/normal = SubResource("StyleBoxFlat_0ok57")
+theme_override_styles/hover = SubResource("StyleBoxFlat_0ok57")
+theme_override_styles/focus = SubResource("StyleBoxEmpty_8nc2n")
+text = "انتخاب"
+
+[connection signal="pressed" from="Weapon  Container Vertical/Weapon Selection Button" to="." method="_on_weapon_selection_button_pressed"]

@@ -1,0 +1,84 @@
+[gd_scene load_steps=13 format=3 uid="uid://dfb5gfrilrmhs"]
+
+[ext_resource type="PackedScene" uid="uid://dfcdi2glvvgda" path="res://Scenes/Finished Scenes/Enemies/BaseFollowerEnemy.tscn" id="1_qh7nn"]
+[ext_resource type="Script" uid="uid://ccbvavaiuohfi" path="res://Scripts/Finished Script/EnemySuicideAi.gd" id="2_jkr7h"]
+[ext_resource type="Shader" uid="uid://dohy3mk254ujm" path="res://Shaders/HitFlashShader.gdshader" id="3_wkfpa"]
+[ext_resource type="AudioStream" uid="uid://cai75af30ilgw" path="res://Assets/SFX/Explosion Trigger SFX.wav" id="4_6ee81"]
+[ext_resource type="AudioStream" uid="uid://chyjn4nmrxgyy" path="res://Assets/SFX/Explosion SFX.wav" id="4_r74hj"]
+[ext_resource type="Texture2D" uid="uid://narysyiwhgdm" path="res://Assets/PNG/Triangle Particle.png" id="6_6ee81"]
+
+[sub_resource type="ShaderMaterial" id="ShaderMaterial_6ee81"]
+resource_local_to_scene = true
+shader = ExtResource("3_wkfpa")
+shader_parameter/flashValue = 0.0
+shader_parameter/flashColor = Color(1, 1, 1, 1)
+
+[sub_resource type="Gradient" id="Gradient_51rjp"]
+offsets = PackedFloat32Array(0.143911, 0.276753, 0.468635, 0.619926, 0.760148, 0.95572)
+colors = PackedColorArray(1, 1, 0, 1, 1, 0.544575, 0, 1, 1, 0.164706, 0, 1, 1, 0, 0, 1, 0.423529, 0, 0, 1, 1, 1, 0, 0)
+
+[sub_resource type="GradientTexture1D" id="GradientTexture1D_f0m5y"]
+gradient = SubResource("Gradient_51rjp")
+
+[sub_resource type="Curve" id="Curve_78ysj"]
+_data = [Vector2(0, 0), 0.0, 0.0, 0, 0, Vector2(0.495082, 1), 0.0, 0.0, 0, 0, Vector2(1, 0.689655), 1.23732, 0.0, 0, 0]
+point_count = 3
+
+[sub_resource type="CurveTexture" id="CurveTexture_2bpx5"]
+curve = SubResource("Curve_78ysj")
+
+[sub_resource type="ParticleProcessMaterial" id="ParticleProcessMaterial_du0ai"]
+particle_flag_disable_z = true
+spread = 180.0
+initial_velocity_max = 348.0
+gravity = Vector3(0, 0, 0)
+scale_min = 0.0
+scale_max = 2.0
+scale_curve = SubResource("CurveTexture_2bpx5")
+color_ramp = SubResource("GradientTexture1D_f0m5y")
+
+[node name="Base Suicide Enemy" node_paths=PackedStringArray("explosionSFXPlayer", "explosionTriggerArea", "enemyExplodeRangeBox", "enemyExplostionParticle", "enemyExplotionTimer") instance=ExtResource("1_qh7nn")]
+script = ExtResource("2_jkr7h")
+explosionSFX = ExtResource("4_r74hj")
+explosionTriggerSFX = ExtResource("4_6ee81")
+explosionSFXPlayer = NodePath("Explosion SFX")
+explosionTriggerArea = NodePath("Enemy Explode Trigger Area")
+enemyExplodeRangeBox = NodePath("Enemy Explodebox")
+enemyExplostionParticle = NodePath("Enemy Explosion Particle")
+enemyExplotionTimer = NodePath("Enemy Explode Timer")
+enemyExplotionMaxTime = 0.0
+
+[node name="Enemy Explode Timer" type="Timer" parent="." index="0"]
+one_shot = true
+
+[node name="Enemy Explode Trigger Area" type="Area2D" parent="." index="4"]
+collision_layer = 0
+collision_mask = 8
+monitorable = false
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="Enemy Explode Trigger Area" index="0"]
+debug_color = Color(0.0350001, 0, 0.7, 0.419608)
+
+[node name="Enemy Explodebox" type="Area2D" parent="." index="5"]
+collision_layer = 0
+collision_mask = 10
+monitorable = false
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="Enemy Explodebox" index="0"]
+debug_color = Color(0.653333, 0.7, 0, 0.419608)
+
+[node name="Enemy Sprite" parent="." index="6"]
+material = SubResource("ShaderMaterial_6ee81")
+
+[node name="Explosion SFX" type="AudioStreamPlayer2D" parent="." index="7"]
+volume_db = 10.0
+bus = &"SoundEffects"
+
+[node name="Enemy Explosion Particle" type="GPUParticles2D" parent="." index="8"]
+emitting = false
+amount = 96
+texture = ExtResource("6_6ee81")
+lifetime = 0.5
+one_shot = true
+explosiveness = 1.0
+process_material = SubResource("ParticleProcessMaterial_du0ai")

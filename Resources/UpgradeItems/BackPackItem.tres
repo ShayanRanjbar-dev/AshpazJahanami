@@ -1,0 +1,36 @@
+[gd_resource type="Resource" script_class="UpgradeItem" load_steps=10 format=3 uid="uid://2dw5310rh61t"]
+
+[ext_resource type="Script" uid="uid://c0vpj1xwiupb7" path="res://Resources/Modifiers/BaseModifiers.gd" id="1_htlsi"]
+[ext_resource type="Resource" uid="uid://jyhtkyoyri3o" path="res://Resources/GameData/CollectibleDataCable.tres" id="2_0sx8i"]
+[ext_resource type="Resource" uid="uid://dqv8v8ckx7mdt" path="res://Resources/GameData/PlayerDataCable.tres" id="2_v1lbn"]
+[ext_resource type="Script" uid="uid://c6sj8aoq74b62" path="res://Resources/UpgradeItems/_UpgradeItem.gd" id="2_vr34g"]
+[ext_resource type="Script" uid="uid://h6pr56igld2t" path="res://Resources/Modifiers/PlayerModifiers.gd" id="3_0sx8i"]
+[ext_resource type="Texture2D" uid="uid://df0gdab13xa1i" path="res://Assets/PNG/backpack.png" id="3_htlsi"]
+[ext_resource type="Script" uid="uid://dieiryxjypc00" path="res://Resources/Modifiers/CollectibleModifiers.gd" id="3_rian3"]
+
+[sub_resource type="Resource" id="Resource_0sx8i"]
+script = ExtResource("3_rian3")
+modifiers = "MoneyValue"
+cable = ExtResource("2_0sx8i")
+modifierType = -1
+metadata/_custom_type_script = "uid://dieiryxjypc00"
+
+[sub_resource type="Resource" id="Resource_rian3"]
+script = ExtResource("3_0sx8i")
+modifiers = "Knockback"
+cable = ExtResource("2_v1lbn")
+modifierType = 1
+metadata/_custom_type_script = "uid://h6pr56igld2t"
+
+[resource]
+script = ExtResource("2_vr34g")
+texture = ExtResource("3_htlsi")
+Name = "کوله پشتی"
+ProsList = Dictionary[String, ExtResource("1_htlsi")]({
+"ناکبک": SubResource("Resource_rian3")
+})
+ConsList = Dictionary[String, ExtResource("1_htlsi")]({
+"پول": SubResource("Resource_0sx8i")
+})
+Price = 3
+metadata/_custom_type_script = "uid://c6sj8aoq74b62"

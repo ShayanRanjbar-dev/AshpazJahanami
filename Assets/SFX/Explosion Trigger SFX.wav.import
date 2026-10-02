@@ -1,0 +1,24 @@
+[remap]
+
+importer="wav"
+type="AudioStreamWAV"
+uid="uid://cai75af30ilgw"
+path="res://.godot/imported/Explosion Trigger SFX.wav-8117cf130e0a0aaa5e97f3044ff6d4dc.sample"
+
+[deps]
+
+source_file="res://Assets/SFX/Explosion Trigger SFX.wav"
+dest_files=["res://.godot/imported/Explosion Trigger SFX.wav-8117cf130e0a0aaa5e97f3044ff6d4dc.sample"]
+
+[params]
+
+force/8_bit=false
+force/mono=false
+force/max_rate=false
+force/max_rate_hz=44100
+edit/trim=false
+edit/normalize=false
+edit/loop_mode=0
+edit/loop_begin=0
+edit/loop_end=-1
+compress/mode=2

@@ -1,0 +1,36 @@
+[gd_resource type="Resource" script_class="UpgradeItem" load_steps=10 format=3 uid="uid://c4ryhlcg7se5p"]
+
+[ext_resource type="Script" uid="uid://c0vpj1xwiupb7" path="res://Resources/Modifiers/BaseModifiers.gd" id="1_k7p7o"]
+[ext_resource type="Resource" uid="uid://muee12cy8ro6" path="res://Resources/GameData/EnemyDataCable.tres" id="2_1rk41"]
+[ext_resource type="Script" uid="uid://c6sj8aoq74b62" path="res://Resources/UpgradeItems/_UpgradeItem.gd" id="2_vat1f"]
+[ext_resource type="Resource" uid="uid://dqv8v8ckx7mdt" path="res://Resources/GameData/PlayerDataCable.tres" id="2_xueuc"]
+[ext_resource type="Script" uid="uid://b484ww51n4vgy" path="res://Resources/Modifiers/EnemyModifiers.gd" id="3_3kkny"]
+[ext_resource type="Script" uid="uid://h6pr56igld2t" path="res://Resources/Modifiers/PlayerModifiers.gd" id="3_8iime"]
+[ext_resource type="Texture2D" uid="uid://blihdohrsrkuc" path="res://Assets/PNG/Oil.png" id="5_1rk41"]
+
+[sub_resource type="Resource" id="Resource_1rk41"]
+script = ExtResource("3_3kkny")
+modifiers = "Damage"
+cable = ExtResource("2_1rk41")
+modifierType = 1
+metadata/_custom_type_script = "uid://b484ww51n4vgy"
+
+[sub_resource type="Resource" id="Resource_3kkny"]
+script = ExtResource("3_8iime")
+modifiers = "LongSpeed"
+cable = ExtResource("2_xueuc")
+modifierType = 1
+metadata/_custom_type_script = "uid://h6pr56igld2t"
+
+[resource]
+script = ExtResource("2_vat1f")
+texture = ExtResource("5_1rk41")
+Name = "روغن مایع"
+ProsList = Dictionary[String, ExtResource("1_k7p7o")]({
+"سرعت سلاح گرم": SubResource("Resource_3kkny")
+})
+ConsList = Dictionary[String, ExtResource("1_k7p7o")]({
+"آسیب دشمن": SubResource("Resource_1rk41")
+})
+Price = 2
+metadata/_custom_type_script = "uid://c6sj8aoq74b62"

@@ -1,0 +1,48 @@
+[gd_scene load_steps=8 format=3 uid="uid://b2ban1d4bb4yj"]
+
+[ext_resource type="PackedScene" uid="uid://rncy008a7ufn" path="res://Scenes/Finished Scenes/Enemies/BaseBossEnemy.tscn" id="1_ryp5s"]
+[ext_resource type="Shader" uid="uid://dohy3mk254ujm" path="res://Shaders/HitFlashShader.gdshader" id="3_6kd4c"]
+[ext_resource type="Texture2D" uid="uid://diiw27rw37e8e" path="res://Assets/PNG/king of sweets.png" id="3_houdf"]
+
+[sub_resource type="CircleShape2D" id="CircleShape2D_i162p"]
+radius = 32.0
+
+[sub_resource type="CircleShape2D" id="CircleShape2D_6icxt"]
+radius = 112.0
+
+[sub_resource type="CircleShape2D" id="CircleShape2D_rpp3r"]
+radius = 128.0
+
+[sub_resource type="ShaderMaterial" id="ShaderMaterial_houdf"]
+resource_local_to_scene = true
+shader = ExtResource("3_6kd4c")
+shader_parameter/flashValue = 0.0
+shader_parameter/flashColor = Color(1, 1, 1, 1)
+
+[node name="King Of Sweets Enemy" instance=ExtResource("1_ryp5s")]
+attackcooldownTimeMax = 2.0
+bulletPerSecondMax = 3
+fullHealth = 5000
+damage = 30
+speed = 250
+
+[node name="Enemy Healthbar" parent="." index="0"]
+enemyName = "پادشاه شیرینی"
+
+[node name="Enemy Name Text" parent="Enemy Healthbar/Enemy Healthbar CanvasLayer/Enemy Healthbar Container Vertical" index="0"]
+text = "پادشاه شیرینی"
+
+[node name="Enemy Collision" parent="." index="2"]
+position = Vector2(0, 64)
+shape = SubResource("CircleShape2D_i162p")
+
+[node name="CollisionShape2D" parent="Enemy Hitbox" index="0"]
+shape = SubResource("CircleShape2D_6icxt")
+
+[node name="CollisionShape2D" parent="Enemy Hurtbox" index="0"]
+shape = SubResource("CircleShape2D_rpp3r")
+
+[node name="Enemy Sprite" parent="." index="5"]
+material = SubResource("ShaderMaterial_houdf")
+texture = ExtResource("3_houdf")
+region_enabled = false

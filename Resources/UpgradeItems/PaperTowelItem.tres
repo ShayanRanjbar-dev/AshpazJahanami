@@ -1,0 +1,36 @@
+[gd_resource type="Resource" script_class="UpgradeItem" load_steps=10 format=3 uid="uid://d1yrsq352jchk"]
+
+[ext_resource type="Script" uid="uid://c6sj8aoq74b62" path="res://Resources/UpgradeItems/_UpgradeItem.gd" id="1_kip3o"]
+[ext_resource type="Script" uid="uid://c0vpj1xwiupb7" path="res://Resources/Modifiers/BaseModifiers.gd" id="1_prf8c"]
+[ext_resource type="Texture2D" uid="uid://c71dsm806u3jn" path="res://Assets/PNG/paper towel.png" id="2_5p24q"]
+[ext_resource type="Resource" uid="uid://dqv8v8ckx7mdt" path="res://Resources/GameData/PlayerDataCable.tres" id="2_b7i1b"]
+[ext_resource type="Script" uid="uid://h6pr56igld2t" path="res://Resources/Modifiers/PlayerModifiers.gd" id="3_ri1pe"]
+[ext_resource type="Resource" uid="uid://muee12cy8ro6" path="res://Resources/GameData/EnemyDataCable.tres" id="4_1onm1"]
+[ext_resource type="Script" uid="uid://b484ww51n4vgy" path="res://Resources/Modifiers/EnemyModifiers.gd" id="5_tvo7y"]
+
+[sub_resource type="Resource" id="Resource_prf8c"]
+script = ExtResource("3_ri1pe")
+modifiers = "LongDamage"
+cable = ExtResource("2_b7i1b")
+modifierType = -1
+metadata/_custom_type_script = "uid://h6pr56igld2t"
+
+[sub_resource type="Resource" id="Resource_b7i1b"]
+script = ExtResource("5_tvo7y")
+modifiers = "Speed"
+cable = ExtResource("4_1onm1")
+modifierType = -1
+metadata/_custom_type_script = "uid://b484ww51n4vgy"
+
+[resource]
+script = ExtResource("1_kip3o")
+texture = ExtResource("2_5p24q")
+Name = "دستمال حوله ای"
+ProsList = Dictionary[String, ExtResource("1_prf8c")]({
+"سرعت دشمن": SubResource("Resource_b7i1b")
+})
+ConsList = Dictionary[String, ExtResource("1_prf8c")]({
+"آسیب سلاح گرم": SubResource("Resource_prf8c")
+})
+Price = 2
+metadata/_custom_type_script = "uid://c6sj8aoq74b62"

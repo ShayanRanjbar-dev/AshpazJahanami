@@ -1,0 +1,18 @@
+[gd_resource type="Resource" script_class="WeaponData" load_steps=5 format=3 uid="uid://c8nowxjavxs3l"]
+
+[ext_resource type="Script" uid="uid://bpnrhe66or36n" path="res://Resources/WeaponItems/_WeaponData.gd" id="1_byiqk"]
+[ext_resource type="PackedScene" uid="uid://dwoyjd8xh4n2g" path="res://Scenes/Finished Scenes/Weapons/Ladle.tscn" id="1_fam40"]
+[ext_resource type="Resource" uid="uid://74jw66ofeygb" path="res://Achievements/buy_ladle.tres" id="2_pstsp"]
+[ext_resource type="Texture2D" uid="uid://b6514voaa2ped" path="res://Assets/PNG/Ladle.png" id="2_regi4"]
+
+[resource]
+script = ExtResource("1_byiqk")
+Name = "ملاقه"
+WeaponTexture = ExtResource("2_regi4")
+Scene = ExtResource("1_fam40")
+Type = "LongRange"
+Damage = 30
+BuyPrice = 15
+SellPrice = 10
+WeaponAchievement = ExtResource("2_pstsp")
+metadata/_custom_type_script = "uid://bpnrhe66or36n"

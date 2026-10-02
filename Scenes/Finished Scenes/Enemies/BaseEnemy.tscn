@@ -1,0 +1,63 @@
+[gd_scene load_steps=7 format=3 uid="uid://bcsq3aq5pet2t"]
+
+[ext_resource type="Script" uid="uid://d33ch6883by3s" path="res://Scripts/Finished Script/Custom Class Scripts/BaseEnemyAI.gd" id="1_whi32"]
+[ext_resource type="Script" uid="uid://ueox4g8uq6ux" path="res://Scripts/Finished Script/Custom Class Scripts/EnemyHitbox.gd" id="2_5jjek"]
+[ext_resource type="Shader" uid="uid://dohy3mk254ujm" path="res://Shaders/HitFlashShader.gdshader" id="3_6ks27"]
+[ext_resource type="Script" uid="uid://b4nl0wvrqgdw2" path="res://Scripts/Finished Script/EnemySprite.gd" id="3_i3xje"]
+[ext_resource type="Texture2D" uid="uid://cox65u63jig1v" path="res://Assets/PNG/Enemies SpriteSheet.png" id="4_uegf0"]
+
+[sub_resource type="ShaderMaterial" id="ShaderMaterial_uegf0"]
+resource_local_to_scene = true
+shader = ExtResource("3_6ks27")
+shader_parameter/flashValue = 0.0
+shader_parameter/flashColor = Color(1, 1, 1, 1)
+
+[node name="BaseEnemy" type="CharacterBody2D" node_paths=PackedStringArray("Hitbox", "Hurtbox", "spriteComposition")]
+y_sort_enabled = true
+collision_layer = 0
+motion_mode = 1
+script = ExtResource("1_whi32")
+Hitbox = NodePath("Enemy Hitbox")
+Hurtbox = NodePath("Enemy Hurtbox")
+spriteComposition = NodePath("Enemy Sprite/Enemy Sprite Composition")
+metadata/_custom_type_script = "uid://d33ch6883by3s"
+
+[node name="Enemy Collision" type="CollisionShape2D" parent="."]
+debug_color = Color(1, 1, 1, 0.419608)
+
+[node name="Enemy Hitbox" type="Area2D" parent="."]
+collision_layer = 8
+collision_mask = 0
+monitoring = false
+monitorable = false
+script = ExtResource("2_5jjek")
+metadata/_custom_type_script = "uid://ueox4g8uq6ux"
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="Enemy Hitbox"]
+debug_color = Color(0.58, 0, 0, 0.419608)
+
+[node name="Enemy Hurtbox" type="Area2D" parent="."]
+collision_layer = 2
+collision_mask = 4
+monitoring = false
+monitorable = false
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="Enemy Hurtbox"]
+debug_color = Color(0, 0.7, 0.14, 0.419608)
+
+[node name="Enemy Sprite" type="Sprite2D" parent="."]
+material = SubResource("ShaderMaterial_uegf0")
+texture = ExtResource("4_uegf0")
+region_enabled = true
+region_rect = Rect2(156.55, 88, 88.6552, 80)
+
+[node name="Enemy Sprite Composition" type="Node" parent="Enemy Sprite" node_paths=PackedStringArray("enemySprite")]
+script = ExtResource("3_i3xje")
+enemySprite = NodePath("..")
+hitFlashColor = Color(1, 1, 1, 1)
+explodeFlashColor = Color(0.8, 0, 0, 1)
+fireBulletFlashColor = Color(1, 0.710663, 0.421951, 1)
+healFlashColor = Color(0, 0.691436, 3.85046e-07, 1)
+necromanceFlashColor = Color(0.384314, 0, 0.603922, 1)
+bossBulletFlashColor = Color(1, 0, 0.870588, 1)
+bossChargeFlashColor = Color(0.831373, 0, 0, 1)

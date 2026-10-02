@@ -1,0 +1,46 @@
+[gd_scene load_steps=9 format=3 uid="uid://cfeupxeowugg8"]
+
+[ext_resource type="PackedScene" uid="uid://c74hcbhm2dvhu" path="res://Scenes/Finished Scenes/Collectibles/BaseCollectible.tscn" id="1_ftp76"]
+[ext_resource type="Texture2D" uid="uid://d2pqojjhys2g2" path="res://Assets/PNG/chef hat.png" id="2_cucak"]
+
+[sub_resource type="CircleShape2D" id="CircleShape2D_6tgjf"]
+radius = 24.0
+
+[sub_resource type="Gradient" id="Gradient_ftp76"]
+offsets = PackedFloat32Array(0.268817, 0.620072, 1)
+colors = PackedColorArray(1, 1, 1, 1, 0.699653, 0.699653, 0.699653, 0.880952, 1, 1, 1, 0)
+
+[sub_resource type="GradientTexture1D" id="GradientTexture1D_cucak"]
+gradient = SubResource("Gradient_ftp76")
+
+[sub_resource type="Curve" id="Curve_6tgjf"]
+_data = [Vector2(0, 0), 0.0, 0.0, 0, 0, Vector2(0.495082, 1), 0.0, 0.0, 0, 0, Vector2(1, 0.689655), 1.23732, 0.0, 0, 0]
+point_count = 3
+
+[sub_resource type="CurveTexture" id="CurveTexture_fw2x6"]
+curve = SubResource("Curve_6tgjf")
+
+[sub_resource type="ParticleProcessMaterial" id="ParticleProcessMaterial_bboo7"]
+particle_flag_disable_z = true
+spread = 180.0
+initial_velocity_max = 96.0
+gravity = Vector3(0, 0, 0)
+scale_min = 0.0
+scale_curve = SubResource("CurveTexture_fw2x6")
+color_ramp = SubResource("GradientTexture1D_cucak")
+
+[node name="Chef Hat" instance=ExtResource("1_ftp76")]
+collectibleType = "Chef Hat"
+collectibleValue = 50.0
+
+[node name="Collectible Collision" parent="." index="0"]
+shape = SubResource("CircleShape2D_6tgjf")
+
+[node name="Collectible Shadow Sprite" parent="." index="1"]
+offset = Vector2(0, 20)
+
+[node name="Collectible Sprite" parent="." index="2"]
+texture = ExtResource("2_cucak")
+
+[node name="Collectible Spawn Particle" parent="." index="3"]
+process_material = SubResource("ParticleProcessMaterial_bboo7")

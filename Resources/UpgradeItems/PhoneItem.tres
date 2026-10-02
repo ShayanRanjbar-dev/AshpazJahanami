@@ -1,0 +1,36 @@
+[gd_resource type="Resource" script_class="UpgradeItem" load_steps=10 format=3 uid="uid://dkct055r32k4q"]
+
+[ext_resource type="Script" uid="uid://c6sj8aoq74b62" path="res://Resources/UpgradeItems/_UpgradeItem.gd" id="1_ii1q2"]
+[ext_resource type="Script" uid="uid://c0vpj1xwiupb7" path="res://Resources/Modifiers/BaseModifiers.gd" id="1_tik4d"]
+[ext_resource type="Texture2D" uid="uid://d4lrj3duax0v7" path="res://Assets/PNG/phone.png" id="2_028km"]
+[ext_resource type="Resource" uid="uid://dqv8v8ckx7mdt" path="res://Resources/GameData/PlayerDataCable.tres" id="2_73w4o"]
+[ext_resource type="Script" uid="uid://h6pr56igld2t" path="res://Resources/Modifiers/PlayerModifiers.gd" id="3_qee8a"]
+[ext_resource type="Resource" uid="uid://jyhtkyoyri3o" path="res://Resources/GameData/CollectibleDataCable.tres" id="4_qe6q5"]
+[ext_resource type="Script" uid="uid://dieiryxjypc00" path="res://Resources/Modifiers/CollectibleModifiers.gd" id="5_y8dkt"]
+
+[sub_resource type="Resource" id="Resource_73w4o"]
+script = ExtResource("3_qee8a")
+modifiers = "Knockback"
+cable = ExtResource("2_73w4o")
+modifierType = -1
+metadata/_custom_type_script = "uid://h6pr56igld2t"
+
+[sub_resource type="Resource" id="Resource_qee8a"]
+script = ExtResource("5_y8dkt")
+modifiers = "MoneyValue"
+cable = ExtResource("4_qe6q5")
+modifierType = 1
+metadata/_custom_type_script = "uid://dieiryxjypc00"
+
+[resource]
+script = ExtResource("1_ii1q2")
+texture = ExtResource("2_028km")
+Name = "گوشی"
+ProsList = Dictionary[String, ExtResource("1_tik4d")]({
+"پول": SubResource("Resource_qee8a")
+})
+ConsList = Dictionary[String, ExtResource("1_tik4d")]({
+"ناکبک": SubResource("Resource_73w4o")
+})
+Price = 2
+metadata/_custom_type_script = "uid://c6sj8aoq74b62"

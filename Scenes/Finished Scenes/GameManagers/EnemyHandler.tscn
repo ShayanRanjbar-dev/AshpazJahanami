@@ -1,0 +1,26 @@
+[gd_scene load_steps=8 format=3 uid="uid://dfswxnptrpxpy"]
+
+[ext_resource type="Script" uid="uid://bd2k35w7tgwdu" path="res://Scripts/Finished Script/EnemyHandler.gd" id="1_j1nyt"]
+[ext_resource type="PackedScene" uid="uid://7pi6u40l5veo" path="res://Scenes/Finished Scenes/Enemies/TomatoEnemy.tscn" id="2_y6d2n"]
+[ext_resource type="PackedScene" uid="uid://bpj0d0bwcex5y" path="res://Scenes/Finished Scenes/Enemies/BurgerEnemy.tscn" id="3_arphi"]
+[ext_resource type="PackedScene" uid="uid://cy0vas5mvaevg" path="res://Scenes/Finished Scenes/Enemies/CookieEnemy.tscn" id="4_ft3si"]
+[ext_resource type="PackedScene" uid="uid://bhpglhxogb7s8" path="res://Scenes/Finished Scenes/Enemies/FriesEnemy.tscn" id="5_g6mwe"]
+[ext_resource type="PackedScene" uid="uid://bpwhe8s71s1hp" path="res://Scenes/Finished Scenes/Enemies/PizzaEnemy.tscn" id="6_r111u"]
+[ext_resource type="PackedScene" uid="uid://b2ban1d4bb4yj" path="res://Scenes/Finished Scenes/Enemies/KingOfSweetsEnemy.tscn" id="7_arphi"]
+
+[node name="EnemyHandler" type="Node" node_paths=PackedStringArray("spawnNode", "bulletHolderNode", "spawnerTimer")]
+script = ExtResource("1_j1nyt")
+enemyScenes = Array[PackedScene]([ExtResource("2_y6d2n"), ExtResource("3_arphi"), ExtResource("4_ft3si"), ExtResource("5_g6mwe"), ExtResource("6_r111u")])
+bossEnemyScenes = Array[PackedScene]([ExtResource("7_arphi")])
+spawnNode = NodePath("Enemy Spawner Node")
+bulletHolderNode = NodePath("Enemy Bullet Holder")
+spawnerTimer = NodePath("Enemy Spawner Timer")
+
+[node name="Enemy Bullet Holder" type="Node2D" parent="."]
+
+[node name="Enemy Spawner Node" type="Node2D" parent="."]
+y_sort_enabled = true
+
+[node name="Enemy Spawner Timer" type="Timer" parent="."]
+
+[connection signal="timeout" from="Enemy Spawner Timer" to="." method="EnemySpawnerTimerTimeOut"]

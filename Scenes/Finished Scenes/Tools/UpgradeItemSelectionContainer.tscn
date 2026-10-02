@@ -1,0 +1,130 @@
+[gd_scene load_steps=10 format=3 uid="uid://iuaei6u01rbe"]
+
+[ext_resource type="Script" path="res://Scripts/Finished Script/UpgradeItemSelectionContainer.gd" id="1_37mx0"]
+[ext_resource type="FontFile" uid="uid://6ks1p1rjslef" path="res://Assets/FONT/Arapix.otf" id="1_g38w0"]
+[ext_resource type="FontFile" uid="uid://dc87qed1m0283" path="res://Themes/ArapixRitchTextLableFont.tres" id="2_gua0c"]
+[ext_resource type="FontFile" uid="uid://c1w3machijxa2" path="res://Themes/EditundoRitchTextLableFont.tres" id="3_lbkpw"]
+
+[sub_resource type="StyleBoxFlat" id="StyleBoxFlat_37mx0"]
+content_margin_left = 16.0
+content_margin_top = 16.0
+content_margin_right = 16.0
+content_margin_bottom = 16.0
+bg_color = Color(0.706347, 0.434987, 0.314169, 1)
+border_width_left = 4
+border_width_top = 4
+border_width_right = 4
+border_width_bottom = 4
+border_color = Color(0.286275, 0.152941, 0.129412, 1)
+
+[sub_resource type="LabelSettings" id="LabelSettings_pwq7b"]
+font = ExtResource("1_g38w0")
+font_size = 84
+outline_size = 8
+outline_color = Color(0, 0, 0, 1)
+
+[sub_resource type="StyleBoxFlat" id="StyleBoxFlat_gua0c"]
+bg_color = Color(0.552941, 0.32549, 0.223529, 1)
+border_width_left = 8
+border_width_top = 8
+border_width_right = 8
+border_width_bottom = 8
+border_color = Color(0.286275, 0.152941, 0.129412, 1)
+
+[sub_resource type="StyleBoxEmpty" id="StyleBoxEmpty_46kn0"]
+
+[sub_resource type="StyleBoxFlat" id="StyleBoxFlat_5gjmh"]
+content_margin_left = 16.0
+content_margin_bottom = 16.0
+bg_color = Color(0.552941, 0.32549, 0.223529, 1)
+border_width_left = 8
+border_width_top = 8
+border_width_right = 8
+border_width_bottom = 8
+border_color = Color(0.286275, 0.152941, 0.129412, 1)
+shadow_size = 8
+
+[node name="Upgrade Item Selection Container" type="PanelContainer" node_paths=PackedStringArray("itemNameText", "itemProsText", "itemConsText", "itemPriceText", "itemTexture", "itemSelectionButton")]
+theme_override_styles/panel = SubResource("StyleBoxFlat_37mx0")
+script = ExtResource("1_37mx0")
+itemNameText = NodePath("Upgrade Item Container/Upgrade Item Container Vertical/Item Name Text")
+itemProsText = NodePath("Upgrade Item Container/Upgrade Item Container Vertical/Item Pros Text")
+itemConsText = NodePath("Upgrade Item Container/Upgrade Item Container Vertical/Item Cons Text")
+itemPriceText = NodePath("Upgrade Item Container/Upgrade Item Container Vertical/Item Price Text")
+itemTexture = NodePath("Upgrade Item Container/Upgrade Item Container Vertical/Item Texture Container/Item Texture")
+itemSelectionButton = NodePath("Upgrade Item Container/Item Selection Button")
+mainFont = ExtResource("2_gua0c")
+numberFont = ExtResource("3_lbkpw")
+
+[node name="Upgrade Item Container" type="MarginContainer" parent="."]
+custom_minimum_size = Vector2(288, 664)
+layout_mode = 2
+
+[node name="Upgrade Item Container Vertical" type="VBoxContainer" parent="Upgrade Item Container"]
+layout_mode = 2
+
+[node name="Control" type="Control" parent="Upgrade Item Container/Upgrade Item Container Vertical"]
+layout_mode = 2
+
+[node name="Item Name Text" type="Label" parent="Upgrade Item Container/Upgrade Item Container Vertical"]
+layout_mode = 2
+text = "اسم این آیتم"
+label_settings = SubResource("LabelSettings_pwq7b")
+horizontal_alignment = 1
+vertical_alignment = 1
+
+[node name="Control2" type="Control" parent="Upgrade Item Container/Upgrade Item Container Vertical"]
+custom_minimum_size = Vector2(0, 8)
+layout_mode = 2
+
+[node name="Item Texture Container" type="PanelContainer" parent="Upgrade Item Container/Upgrade Item Container Vertical"]
+layout_mode = 2
+size_flags_horizontal = 4
+size_flags_vertical = 4
+theme_override_styles/panel = SubResource("StyleBoxFlat_gua0c")
+
+[node name="Item Texture" type="TextureRect" parent="Upgrade Item Container/Upgrade Item Container Vertical/Item Texture Container"]
+custom_minimum_size = Vector2(256, 256)
+layout_mode = 2
+size_flags_horizontal = 4
+size_flags_vertical = 4
+
+[node name="Item Price Text" type="RichTextLabel" parent="Upgrade Item Container/Upgrade Item Container Vertical"]
+layout_mode = 2
+size_flags_vertical = 4
+bbcode_enabled = true
+fit_content = true
+scroll_active = false
+autowrap_mode = 0
+horizontal_alignment = 1
+
+[node name="Item Pros Text" type="RichTextLabel" parent="Upgrade Item Container/Upgrade Item Container Vertical"]
+clip_contents = false
+layout_mode = 2
+size_flags_vertical = 4
+bbcode_enabled = true
+fit_content = true
+scroll_active = false
+autowrap_mode = 0
+horizontal_alignment = 1
+
+[node name="Item Cons Text" type="RichTextLabel" parent="Upgrade Item Container/Upgrade Item Container Vertical"]
+clip_contents = false
+layout_mode = 2
+size_flags_vertical = 4
+bbcode_enabled = true
+fit_content = true
+scroll_active = false
+autowrap_mode = 0
+horizontal_alignment = 1
+
+[node name="Item Selection Button" type="Button" parent="Upgrade Item Container"]
+custom_minimum_size = Vector2(332, 88)
+layout_mode = 2
+size_flags_horizontal = 4
+size_flags_vertical = 8
+theme_override_fonts/font = ExtResource("1_g38w0")
+theme_override_font_sizes/font_size = 64
+theme_override_styles/focus = SubResource("StyleBoxEmpty_46kn0")
+theme_override_styles/normal = SubResource("StyleBoxFlat_5gjmh")
+text = "انتخاب"

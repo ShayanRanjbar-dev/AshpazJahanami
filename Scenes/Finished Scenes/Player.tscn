@@ -1,0 +1,336 @@
+[gd_scene load_steps=27 format=3 uid="uid://bexy0w6aspv2s"]
+
+[ext_resource type="Script" uid="uid://d2wfbaa0n7mc0" path="res://Scripts/Finished Script/Player.gd" id="1_e57sm"]
+[ext_resource type="Resource" uid="uid://dqv8v8ckx7mdt" path="res://Resources/GameData/PlayerDataCable.tres" id="2_4hncs"]
+[ext_resource type="Script" uid="uid://dmbsjgvyctxvo" path="res://Scripts/Finished Script/PlayerSprite.gd" id="3_c2tll"]
+[ext_resource type="PackedScene" uid="uid://dks27vn6ye24y" path="res://Scenes/Finished Scenes/Weapons/RangedWeaponSpawner.tscn" id="3_kj0fb"]
+[ext_resource type="Shader" uid="uid://dohy3mk254ujm" path="res://Shaders/HitFlashShader.gdshader" id="4_3pock"]
+[ext_resource type="Script" uid="uid://32rkkmwpkakf" path="res://Scripts/Finished Script/PlayerWeaponHolder.gd" id="4_usnvv"]
+[ext_resource type="Texture2D" uid="uid://bwy32laqodihg" path="res://Assets/PNG/Chef Player Sprite.png" id="5_3by48"]
+[ext_resource type="AudioStream" uid="uid://b7qlv4wkurxmm" path="res://Assets/SFX/Player Hurt Sfx.wav" id="5_kj0fb"]
+
+[sub_resource type="CapsuleShape2D" id="CapsuleShape2D_e57sm"]
+radius = 16.0
+height = 32.0
+
+[sub_resource type="CapsuleShape2D" id="CapsuleShape2D_kj0fb"]
+radius = 16.0
+height = 110.0
+
+[sub_resource type="ShaderMaterial" id="ShaderMaterial_3by48"]
+resource_local_to_scene = true
+shader = ExtResource("4_3pock")
+shader_parameter/flashValue = 0.0
+shader_parameter/flashColor = Color(1, 1, 1, 1)
+
+[sub_resource type="Animation" id="Animation_4hncs"]
+resource_name = "MoveAnimation"
+length = 0.500003
+loop_mode = 2
+tracks/0/type = "value"
+tracks/0/imported = false
+tracks/0/enabled = true
+tracks/0/path = NodePath("Player Sprite:scale")
+tracks/0/interp = 1
+tracks/0/loop_wrap = true
+tracks/0/keys = {
+"times": PackedFloat32Array(0, 0.1, 0.166667, 0.333333, 0.4, 0.5),
+"transitions": PackedFloat32Array(-2, -2, -2, -2, -2, -2),
+"update": 0,
+"values": [Vector2(1, 1), Vector2(1, 1.05), Vector2(1, 0.95), Vector2(1, 1.05), Vector2(1, 0.95), Vector2(1, 1)]
+}
+tracks/1/type = "value"
+tracks/1/imported = false
+tracks/1/enabled = true
+tracks/1/path = NodePath("Player Sprite:rotation")
+tracks/1/interp = 3
+tracks/1/loop_wrap = true
+tracks/1/keys = {
+"times": PackedFloat32Array(0, 0.0666666, 0.133333, 0.2, 0.3, 0.366667, 0.433333, 0.5),
+"transitions": PackedFloat32Array(-2, -2, -2, -2, -2, -2, -2, -2),
+"update": 0,
+"values": [0.0, 0.0872665, -0.0872665, 0.0872665, -0.0872665, 0.0872665, -0.0872665, 0.0]
+}
+tracks/2/type = "value"
+tracks/2/imported = false
+tracks/2/enabled = true
+tracks/2/path = NodePath("Player Sprite:position")
+tracks/2/interp = 1
+tracks/2/loop_wrap = true
+tracks/2/keys = {
+"times": PackedFloat32Array(0, 0.0999999, 0.166667, 0.333333, 0.4, 0.5),
+"transitions": PackedFloat32Array(-2, -2, -2, -2, -2, -2),
+"update": 0,
+"values": [Vector2(0, 0), Vector2(0, -5), Vector2(0, 5), Vector2(0, -5), Vector2(0, 5), Vector2(0, 0)]
+}
+
+[sub_resource type="Animation" id="Animation_illsh"]
+length = 0.001
+tracks/0/type = "value"
+tracks/0/imported = false
+tracks/0/enabled = true
+tracks/0/path = NodePath("Player Sprite:scale")
+tracks/0/interp = 1
+tracks/0/loop_wrap = true
+tracks/0/keys = {
+"times": PackedFloat32Array(0),
+"transitions": PackedFloat32Array(1),
+"update": 0,
+"values": [Vector2(1, 1)]
+}
+tracks/1/type = "value"
+tracks/1/imported = false
+tracks/1/enabled = true
+tracks/1/path = NodePath("Player Sprite:rotation")
+tracks/1/interp = 1
+tracks/1/loop_wrap = true
+tracks/1/keys = {
+"times": PackedFloat32Array(0),
+"transitions": PackedFloat32Array(1),
+"update": 0,
+"values": [0.0]
+}
+tracks/2/type = "value"
+tracks/2/imported = false
+tracks/2/enabled = true
+tracks/2/path = NodePath("Player Sprite:position")
+tracks/2/interp = 1
+tracks/2/loop_wrap = true
+tracks/2/keys = {
+"times": PackedFloat32Array(0),
+"transitions": PackedFloat32Array(1),
+"update": 0,
+"values": [Vector2(0, 0)]
+}
+
+[sub_resource type="AnimationLibrary" id="AnimationLibrary_lrcvo"]
+_data = {
+&"MoveAnimation": SubResource("Animation_4hncs"),
+&"RESET": SubResource("Animation_illsh")
+}
+
+[sub_resource type="Animation" id="Animation_ovbi0"]
+resource_name = "Backward"
+tracks/0/type = "value"
+tracks/0/imported = false
+tracks/0/enabled = true
+tracks/0/path = NodePath("Player Sprite:frame")
+tracks/0/interp = 1
+tracks/0/loop_wrap = true
+tracks/0/keys = {
+"times": PackedFloat32Array(0),
+"transitions": PackedFloat32Array(1),
+"update": 1,
+"values": [1]
+}
+
+[sub_resource type="Animation" id="Animation_3by48"]
+resource_name = "Forward"
+tracks/0/type = "value"
+tracks/0/imported = false
+tracks/0/enabled = true
+tracks/0/path = NodePath("Player Sprite:frame")
+tracks/0/interp = 1
+tracks/0/loop_wrap = true
+tracks/0/keys = {
+"times": PackedFloat32Array(0),
+"transitions": PackedFloat32Array(1),
+"update": 1,
+"values": [0]
+}
+
+[sub_resource type="Animation" id="Animation_k68v2"]
+resource_name = "Left"
+tracks/0/type = "value"
+tracks/0/imported = false
+tracks/0/enabled = true
+tracks/0/path = NodePath("Player Sprite:flip_h")
+tracks/0/interp = 1
+tracks/0/loop_wrap = true
+tracks/0/keys = {
+"times": PackedFloat32Array(0),
+"transitions": PackedFloat32Array(1),
+"update": 1,
+"values": [true]
+}
+tracks/1/type = "value"
+tracks/1/imported = false
+tracks/1/enabled = true
+tracks/1/path = NodePath("Player Sprite:frame")
+tracks/1/interp = 1
+tracks/1/loop_wrap = true
+tracks/1/keys = {
+"times": PackedFloat32Array(0),
+"transitions": PackedFloat32Array(1),
+"update": 1,
+"values": [2]
+}
+
+[sub_resource type="Animation" id="Animation_lrcvo"]
+length = 0.001
+tracks/0/type = "value"
+tracks/0/imported = false
+tracks/0/enabled = true
+tracks/0/path = NodePath("Player Sprite:frame")
+tracks/0/interp = 1
+tracks/0/loop_wrap = true
+tracks/0/keys = {
+"times": PackedFloat32Array(0),
+"transitions": PackedFloat32Array(1),
+"update": 1,
+"values": [0]
+}
+tracks/1/type = "value"
+tracks/1/imported = false
+tracks/1/enabled = true
+tracks/1/path = NodePath("Player Sprite:flip_h")
+tracks/1/interp = 1
+tracks/1/loop_wrap = true
+tracks/1/keys = {
+"times": PackedFloat32Array(0),
+"transitions": PackedFloat32Array(1),
+"update": 1,
+"values": [true]
+}
+
+[sub_resource type="Animation" id="Animation_c4vr7"]
+resource_name = "Right"
+tracks/0/type = "value"
+tracks/0/imported = false
+tracks/0/enabled = true
+tracks/0/path = NodePath("Player Sprite:frame")
+tracks/0/interp = 1
+tracks/0/loop_wrap = true
+tracks/0/keys = {
+"times": PackedFloat32Array(0),
+"transitions": PackedFloat32Array(1),
+"update": 1,
+"values": [2]
+}
+tracks/1/type = "value"
+tracks/1/imported = false
+tracks/1/enabled = true
+tracks/1/path = NodePath("Player Sprite:flip_h")
+tracks/1/interp = 1
+tracks/1/loop_wrap = true
+tracks/1/keys = {
+"times": PackedFloat32Array(0),
+"transitions": PackedFloat32Array(1),
+"update": 1,
+"values": [false]
+}
+
+[sub_resource type="AnimationLibrary" id="AnimationLibrary_4hncs"]
+_data = {
+&"Backward": SubResource("Animation_ovbi0"),
+&"Forward": SubResource("Animation_3by48"),
+&"Left": SubResource("Animation_k68v2"),
+&"RESET": SubResource("Animation_lrcvo"),
+&"Right": SubResource("Animation_c4vr7")
+}
+
+[sub_resource type="AnimationNodeAnimation" id="AnimationNodeAnimation_3by48"]
+animation = &"Forward"
+
+[sub_resource type="AnimationNodeAnimation" id="AnimationNodeAnimation_4hncs"]
+animation = &"Backward"
+advance_on_start = true
+
+[sub_resource type="AnimationNodeAnimation" id="AnimationNodeAnimation_illsh"]
+animation = &"Left"
+
+[sub_resource type="AnimationNodeAnimation" id="AnimationNodeAnimation_lrcvo"]
+animation = &"Right"
+
+[sub_resource type="AnimationNodeAnimation" id="AnimationNodeAnimation_ovbi0"]
+animation = &"Forward"
+
+[sub_resource type="AnimationNodeBlendSpace2D" id="AnimationNodeBlendSpace2D_fwkio"]
+blend_point_0/node = SubResource("AnimationNodeAnimation_3by48")
+blend_point_0/pos = Vector2(0, 1)
+blend_point_1/node = SubResource("AnimationNodeAnimation_4hncs")
+blend_point_1/pos = Vector2(0, -1)
+blend_point_2/node = SubResource("AnimationNodeAnimation_illsh")
+blend_point_2/pos = Vector2(-1, 0)
+blend_point_3/node = SubResource("AnimationNodeAnimation_lrcvo")
+blend_point_3/pos = Vector2(1, 0)
+blend_point_4/node = SubResource("AnimationNodeAnimation_ovbi0")
+blend_point_4/pos = Vector2(0, 0)
+blend_mode = 1
+
+[node name="Player" type="CharacterBody2D" node_paths=PackedStringArray("weaponComposition", "spriteComposition", "hurtbox", "hurtSFX")]
+scale = Vector2(0.992224, 0.984672)
+collision_layer = 0
+motion_mode = 1
+script = ExtResource("1_e57sm")
+weaponComposition = NodePath("Player Weapon Holder/Player Weapon Composition")
+spriteComposition = NodePath("Player Sprite/Player Sprite Composition")
+hurtbox = NodePath("Player Hurtbox")
+playerDataCable = ExtResource("2_4hncs")
+hurtSFX = NodePath("Player Hurt SFX")
+
+[node name="Player Collision" type="CollisionShape2D" parent="."]
+position = Vector2(0, 50)
+shape = SubResource("CapsuleShape2D_e57sm")
+debug_color = Color(1, 1, 1, 0.42)
+
+[node name="Player Hurtbox" type="Area2D" parent="."]
+collision_layer = 8
+collision_mask = 8
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="Player Hurtbox"]
+shape = SubResource("CapsuleShape2D_kj0fb")
+debug_color = Color(0, 0.6, 0, 0.419608)
+
+[node name="Player Weapon Holder" type="Node2D" parent="."]
+
+[node name="Player Weapon Composition" type="Node" parent="Player Weapon Holder" node_paths=PackedStringArray("playerBody", "playerWeaponHolder", "closeWeaponHolder", "rangedWeaponHolder")]
+script = ExtResource("4_usnvv")
+playerBody = NodePath("../..")
+playerWeaponHolder = NodePath("..")
+closeWeaponHolder = NodePath("../Player Close Weapon Holder")
+rangedWeaponHolder = NodePath("../Player Ranged Weapon Holder")
+
+[node name="Player Close Weapon Holder" type="Node2D" parent="Player Weapon Holder"]
+
+[node name="Player Ranged Weapon Holder" parent="Player Weapon Holder" node_paths=PackedStringArray("playerWeaponComposition") instance=ExtResource("3_kj0fb")]
+playerWeaponComposition = NodePath("../Player Weapon Composition")
+
+[node name="Player Sprite" type="Sprite2D" parent="."]
+material = SubResource("ShaderMaterial_3by48")
+texture = ExtResource("5_3by48")
+flip_h = true
+hframes = 3
+
+[node name="Player Sprite Composition" type="Node" parent="Player Sprite" node_paths=PackedStringArray("playerSprite", "playerMoveAnimation", "playerTurnAnimation")]
+script = ExtResource("3_c2tll")
+playerSprite = NodePath("..")
+playerMoveAnimation = NodePath("../Player Move Animation")
+playerTurnAnimation = NodePath("../Player Turn Blend Animation")
+hitFlashColor = Color(1, 1, 1, 1)
+moneyFlashColor = Color(0, 0.749434, 0, 1)
+chefHatFlashColor = Color(0.940362, 5.34251e-06, 3.85046e-07, 1)
+
+[node name="Player Move Animation" type="AnimationPlayer" parent="Player Sprite"]
+root_node = NodePath("../..")
+libraries = {
+&"": SubResource("AnimationLibrary_lrcvo")
+}
+
+[node name="Player Turn Animation" type="AnimationPlayer" parent="Player Sprite"]
+root_node = NodePath("../..")
+libraries = {
+&"": SubResource("AnimationLibrary_4hncs")
+}
+
+[node name="Player Turn Blend Animation" type="AnimationTree" parent="Player Sprite"]
+deterministic = false
+root_node = NodePath("../..")
+tree_root = SubResource("AnimationNodeBlendSpace2D_fwkio")
+anim_player = NodePath("../Player Turn Animation")
+parameters/blend_position = Vector2(-0.51921, 4.16279)
+
+[node name="Player Hurt SFX" type="AudioStreamPlayer2D" parent="."]
+stream = ExtResource("5_kj0fb")
+volume_db = 10.0
+bus = &"SoundEffects"

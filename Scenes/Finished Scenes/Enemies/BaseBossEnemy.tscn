@@ -1,0 +1,95 @@
+[gd_scene load_steps=13 format=3 uid="uid://rncy008a7ufn"]
+
+[ext_resource type="PackedScene" uid="uid://bcsq3aq5pet2t" path="res://Scenes/Finished Scenes/Enemies/BaseEnemy.tscn" id="1_h475a"]
+[ext_resource type="Script" uid="uid://ct4o78gfw7gak" path="res://Scripts/Finished Script/EnemyBossAi.gd" id="2_uk0hj"]
+[ext_resource type="AudioStream" uid="uid://cm63qsmf4nc5x" path="res://Assets/SFX/Boss Charge SFX.wav" id="3_ksei5"]
+[ext_resource type="PackedScene" uid="uid://cspqm7b8fdfj1" path="res://Scenes/Finished Scenes/Enemies/KingOfSweetsBullet.tscn" id="3_ujsq7"]
+[ext_resource type="Shader" uid="uid://dohy3mk254ujm" path="res://Shaders/HitFlashShader.gdshader" id="3_uk0hj"]
+[ext_resource type="Script" uid="uid://ba6000spi4f0s" path="res://Scripts/Finished Script/EnemyBossHealthBar.gd" id="4_0sc4e"]
+[ext_resource type="AudioStream" uid="uid://b7s7w2pmi5aru" path="res://Assets/SFX/Boss Charging SFX.wav" id="4_voge5"]
+[ext_resource type="StyleBox" uid="uid://du3mgvxisjexh" path="res://Themes/EnemyHealthBarBackGround.tres" id="5_roxe6"]
+[ext_resource type="FontFile" uid="uid://6ks1p1rjslef" path="res://Assets/FONT/Arapix.otf" id="5_wtest"]
+[ext_resource type="StyleBox" uid="uid://dq478t7ypg8f7" path="res://Themes/EnemyHealthBarFill.tres" id="6_wtest"]
+
+[sub_resource type="LabelSettings" id="LabelSettings_ujsq7"]
+font = ExtResource("5_wtest")
+font_size = 100
+outline_size = 12
+outline_color = Color(0, 0, 0, 1)
+shadow_size = 8
+shadow_color = Color(0, 0, 0, 0.843137)
+
+[sub_resource type="ShaderMaterial" id="ShaderMaterial_0sc4e"]
+resource_local_to_scene = true
+shader = ExtResource("3_uk0hj")
+shader_parameter/flashValue = 0.0
+shader_parameter/flashColor = Color(1, 1, 1, 1)
+
+[node name="Base Boss Enemy" node_paths=PackedStringArray("attackTimer", "healthBar", "enemySoundPlayer") instance=ExtResource("1_h475a")]
+script = ExtResource("2_uk0hj")
+chargeSFX = ExtResource("3_ksei5")
+chargingSFX = ExtResource("4_voge5")
+attackTimer = NodePath("Enemy Attack Timer")
+healthBar = NodePath("Enemy Healthbar")
+enemySoundPlayer = NodePath("Enemy Boss Sound Player")
+bulletScenes = Array[PackedScene]([ExtResource("3_ujsq7")])
+fireRate = 5.5
+attackcooldownTimeMax = 0.0
+bulletPerSecondMax = 4
+
+[node name="Enemy Healthbar" type="Node" parent="." index="0" node_paths=PackedStringArray("enemyHealthbar", "enemyNameText")]
+script = ExtResource("4_0sc4e")
+enemyHealthbar = NodePath("Enemy Healthbar CanvasLayer/Enemy Healthbar Container Vertical/Enemy Healthbar")
+enemyNameText = NodePath("Enemy Healthbar CanvasLayer/Enemy Healthbar Container Vertical/Enemy Name Text")
+metadata/_custom_type_script = "uid://ba6000spi4f0s"
+
+[node name="Enemy Healthbar CanvasLayer" type="CanvasLayer" parent="Enemy Healthbar" index="0"]
+layer = 2
+
+[node name="Enemy Healthbar Container Vertical" type="VBoxContainer" parent="Enemy Healthbar/Enemy Healthbar CanvasLayer" index="0"]
+anchors_preset = 7
+anchor_left = 0.5
+anchor_top = 1.0
+anchor_right = 0.5
+anchor_bottom = 1.0
+offset_left = -20.0
+offset_top = -40.0
+offset_right = 20.0
+grow_horizontal = 2
+grow_vertical = 0
+size_flags_horizontal = 4
+size_flags_vertical = 4
+
+[node name="Enemy Name Text" type="Label" parent="Enemy Healthbar/Enemy Healthbar CanvasLayer/Enemy Healthbar Container Vertical" index="0"]
+layout_mode = 2
+text = "اسم انمی"
+label_settings = SubResource("LabelSettings_ujsq7")
+horizontal_alignment = 3
+
+[node name="Control2" type="Control" parent="Enemy Healthbar/Enemy Healthbar CanvasLayer/Enemy Healthbar Container Vertical" index="1"]
+custom_minimum_size = Vector2(0, 16)
+layout_mode = 2
+
+[node name="Enemy Healthbar" type="ProgressBar" parent="Enemy Healthbar/Enemy Healthbar CanvasLayer/Enemy Healthbar Container Vertical" index="2"]
+custom_minimum_size = Vector2(720, 64)
+layout_mode = 2
+theme_override_styles/background = ExtResource("5_roxe6")
+theme_override_styles/fill = ExtResource("6_wtest")
+step = 1.0
+value = 50.0
+show_percentage = false
+
+[node name="Control" type="Control" parent="Enemy Healthbar/Enemy Healthbar CanvasLayer/Enemy Healthbar Container Vertical" index="3"]
+custom_minimum_size = Vector2(0, 64)
+layout_mode = 2
+
+[node name="Enemy Attack Timer" type="Timer" parent="." index="1"]
+one_shot = true
+autostart = true
+
+[node name="Enemy Sprite" parent="." index="5"]
+material = SubResource("ShaderMaterial_0sc4e")
+
+[node name="Enemy Boss Sound Player" type="AudioStreamPlayer2D" parent="." index="6"]
+volume_db = 10.0
+bus = &"SoundEffects"

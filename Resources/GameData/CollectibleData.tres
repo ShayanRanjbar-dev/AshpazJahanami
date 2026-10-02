@@ -1,0 +1,7 @@
+[gd_resource type="Resource" script_class="CollectibleData" load_steps=2 format=3 uid="uid://dtlnpvufnyyvo"]
+
+[ext_resource type="Script" uid="uid://6pcaco4vrhw8" path="res://Resources/GameData/CollectibleDataResource.gd" id="1_w5v5r"]
+
+[resource]
+script = ExtResource("1_w5v5r")
+metadata/_custom_type_script = "uid://6pcaco4vrhw8"

@@ -1,0 +1,18 @@
+[gd_resource type="Resource" script_class="WeaponData" load_steps=5 format=3 uid="uid://bxm5jrf8m6ad3"]
+
+[ext_resource type="PackedScene" uid="uid://dpjbrrqkx0x20" path="res://Scenes/Finished Scenes/Weapons/Knife.tscn" id="1_2bihj"]
+[ext_resource type="Script" uid="uid://bpnrhe66or36n" path="res://Resources/WeaponItems/_WeaponData.gd" id="1_2cxxa"]
+[ext_resource type="Texture2D" uid="uid://brvjoo7aqpa0d" path="res://Assets/PNG/knife.png" id="2_2vkr4"]
+[ext_resource type="Resource" uid="uid://bvvqn3igli05i" path="res://Achievements/buy_knife.tres" id="2_q4787"]
+
+[resource]
+script = ExtResource("1_2cxxa")
+Name = "چاقو"
+WeaponTexture = ExtResource("2_2vkr4")
+Scene = ExtResource("1_2bihj")
+Type = "LongRange"
+Damage = 20
+BuyPrice = 10
+SellPrice = 7
+WeaponAchievement = ExtResource("2_q4787")
+metadata/_custom_type_script = "uid://bpnrhe66or36n"

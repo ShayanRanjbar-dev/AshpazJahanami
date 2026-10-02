@@ -1,0 +1,16 @@
+[gd_resource type="Resource" script_class="WeaponData" load_steps=4 format=3 uid="uid://d4apfcacayxjx"]
+
+[ext_resource type="Script" uid="uid://bpnrhe66or36n" path="res://Resources/WeaponItems/_WeaponData.gd" id="1_bthqy"]
+[ext_resource type="PackedScene" uid="uid://yxyi2mnam6u3" path="res://Scenes/Finished Scenes/Weapons/Saucepan.tscn" id="1_gnesv"]
+[ext_resource type="Texture2D" uid="uid://ltutqs8m0obu" path="res://Assets/PNG/saucepan.png" id="2_bdjhv"]
+
+[resource]
+script = ExtResource("1_bthqy")
+Name = "ماهیتابه"
+WeaponTexture = ExtResource("2_bdjhv")
+Scene = ExtResource("1_gnesv")
+Type = "CloseRange"
+Damage = 15
+BuyPrice = 7
+SellPrice = 5
+metadata/_custom_type_script = "uid://bpnrhe66or36n"

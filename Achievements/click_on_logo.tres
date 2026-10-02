@@ -1,0 +1,19 @@
+[gd_resource type="Resource" script_class="Achievement" load_steps=4 format=3 uid="uid://bq032fuff5vtf"]
+
+[ext_resource type="Texture2D" uid="uid://cg3b84ak8bsrv" path="res://addons/milestone/icons/hidden_achievement.svg" id="1_in72b"]
+[ext_resource type="Texture2D" uid="uid://cu5v7y4mbj82i" path="res://Game Art/GAME LOGO.png" id="2_428rx"]
+[ext_resource type="Script" uid="uid://dtyojmellf4e5" path="res://addons/milestone/scripts/achievements/achievement.gd" id="3_ii3wb"]
+
+[resource]
+script = ExtResource("3_ii3wb")
+id = "click_on_logo"
+icon = ExtResource("2_428rx")
+icon_filter = 1
+hidden_icon = ExtResource("1_in72b")
+name = "عجب لوگوی جالبیه!!!"
+description = "از کجا فهمیدی باید بزنی روش؟ 😮"
+hidden = true
+considered_rare = true
+progressive = true
+progress_goal = 5.0
+indicate_progress_interval = 5.0

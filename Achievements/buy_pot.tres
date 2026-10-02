@@ -1,0 +1,19 @@
+[gd_resource type="Resource" script_class="Achievement" load_steps=4 format=3 uid="uid://upp8ehg6v1qt"]
+
+[ext_resource type="Texture2D" uid="uid://cg3b84ak8bsrv" path="res://addons/milestone/icons/hidden_achievement.svg" id="1_vjul8"]
+[ext_resource type="Texture2D" uid="uid://cf6g2345dnhgo" path="res://Assets/PNG/Pot Trophy.png" id="2_vjul8"]
+[ext_resource type="Script" uid="uid://dtyojmellf4e5" path="res://addons/milestone/scripts/achievements/achievement.gd" id="3_fvib6"]
+
+[resource]
+script = ExtResource("3_fvib6")
+id = "buy_pot"
+icon = ExtResource("2_vjul8")
+icon_filter = 1
+hidden_icon = ExtResource("1_vjul8")
+name = "پخت و پز رو شروع کن!!"
+description = "قابلمه رو از فروشگاه بخر"
+hidden = false
+considered_rare = false
+progressive = false
+progress_goal = 1.0
+indicate_progress_interval = 1

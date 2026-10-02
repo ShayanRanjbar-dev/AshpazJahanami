@@ -1,0 +1,16 @@
+[gd_scene load_steps=3 format=3 uid="uid://cqj3mrtbv3h1o"]
+
+[ext_resource type="PackedScene" uid="uid://crwp85f0kgjuu" path="res://Scenes/Finished Scenes/Enemies/BaseWanderEnemy.tscn" id="1_ua7k5"]
+[ext_resource type="Script" uid="uid://bh4p6qxhob5ar" path="res://Scripts/Finished Script/EnemyShooterAi.gd" id="2_iqcd7"]
+
+[node name="Base Shooter Enemy" node_paths=PackedStringArray("bulletTimer") instance=ExtResource("1_ua7k5")]
+script = ExtResource("2_iqcd7")
+bulletScene = null
+fireRate = 0.0
+bulletPerSecondMax = 0
+cooldownTimeMax = 0.0
+bulletTimer = NodePath("Enemy Bullet Timer")
+
+[node name="Enemy Bullet Timer" type="Timer" parent="." index="0"]
+one_shot = true
+autostart = true

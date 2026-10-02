@@ -1,0 +1,18 @@
+[gd_resource type="Resource" script_class="WeaponData" load_steps=5 format=3 uid="uid://dboraf53e2jgf"]
+
+[ext_resource type="Script" uid="uid://bpnrhe66or36n" path="res://Resources/WeaponItems/_WeaponData.gd" id="1_w1h3p"]
+[ext_resource type="PackedScene" uid="uid://ny7rx1jvxh6l" path="res://Scenes/Finished Scenes/Weapons/Pot.tscn" id="1_y7gew"]
+[ext_resource type="Texture2D" uid="uid://bmhitdkyor4tr" path="res://Assets/PNG/pot.png" id="2_7bf62"]
+[ext_resource type="Resource" uid="uid://upp8ehg6v1qt" path="res://Achievements/buy_pot.tres" id="2_p55g5"]
+
+[resource]
+script = ExtResource("1_w1h3p")
+Name = "قابلمه"
+WeaponTexture = ExtResource("2_7bf62")
+Scene = ExtResource("1_y7gew")
+Type = "CloseRange"
+Damage = 20
+BuyPrice = 10
+SellPrice = 7
+WeaponAchievement = ExtResource("2_p55g5")
+metadata/_custom_type_script = "uid://bpnrhe66or36n"

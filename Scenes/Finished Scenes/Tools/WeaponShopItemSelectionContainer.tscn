@@ -1,0 +1,133 @@
+[gd_scene load_steps=11 format=3 uid="uid://cs6syo4dc7h88"]
+
+[ext_resource type="FontFile" uid="uid://6ks1p1rjslef" path="res://Assets/FONT/Arapix.otf" id="1_3h4o4"]
+[ext_resource type="Script" uid="uid://digc8div504j6" path="res://Scripts/Finished Script/Custom Class Scripts/WeaponShopItemSelectionContainer.gd" id="1_np1ku"]
+[ext_resource type="FontFile" uid="uid://dc87qed1m0283" path="res://Themes/ArapixRitchTextLableFont.tres" id="2_o33b1"]
+[ext_resource type="FontFile" uid="uid://c1w3machijxa2" path="res://Themes/EditundoRitchTextLableFont.tres" id="3_1rvut"]
+
+[sub_resource type="StyleBoxFlat" id="StyleBoxFlat_np1ku"]
+content_margin_left = 16.0
+content_margin_top = 16.0
+content_margin_right = 16.0
+content_margin_bottom = 16.0
+bg_color = Color(0.75921, 0.396093, 0.999947, 1)
+border_width_left = 4
+border_width_top = 4
+border_width_right = 4
+border_width_bottom = 4
+border_color = Color(0.266667, 0, 0.396078, 1)
+
+[sub_resource type="LabelSettings" id="LabelSettings_pwq7b"]
+font = ExtResource("1_3h4o4")
+font_size = 64
+outline_size = 8
+outline_color = Color(0, 0, 0, 1)
+
+[sub_resource type="StyleBoxFlat" id="StyleBoxFlat_y3j5n"]
+bg_color = Color(0.458824, 0, 0.662745, 1)
+border_width_left = 8
+border_width_top = 8
+border_width_right = 8
+border_width_bottom = 8
+border_color = Color(0.266667, 0, 0.396078, 1)
+
+[sub_resource type="LabelSettings" id="LabelSettings_lbkpw"]
+font = ExtResource("1_3h4o4")
+font_size = 64
+font_color = Color(0, 1, 0, 1)
+outline_size = 8
+outline_color = Color(0, 0, 0, 1)
+
+[sub_resource type="StyleBoxEmpty" id="StyleBoxEmpty_46kn0"]
+
+[sub_resource type="StyleBoxFlat" id="StyleBoxFlat_o33b1"]
+content_margin_left = 16.0
+content_margin_bottom = 16.0
+bg_color = Color(0.458824, 0, 0.662745, 1)
+border_width_left = 8
+border_width_top = 8
+border_width_right = 8
+border_width_bottom = 8
+border_color = Color(0.266667, 0, 0.396078, 1)
+shadow_size = 8
+
+[node name="WeaponShop Item Selection Container" type="PanelContainer" node_paths=PackedStringArray("itemNameText", "itemPriceText", "itemTypeText", "itemDamageText", "itemTexture", "itemSelectionButton")]
+offset_right = 320.0
+offset_bottom = 696.0
+theme_override_styles/panel = SubResource("StyleBoxFlat_np1ku")
+script = ExtResource("1_np1ku")
+itemNameText = NodePath("WeaponShop Item Container/WeaponShop Item Container Vertical/Item Name Text")
+itemPriceText = NodePath("WeaponShop Item Container/WeaponShop Item Container Vertical/Item Price Text")
+itemTypeText = NodePath("WeaponShop Item Container/WeaponShop Item Container Vertical/Item Type Text")
+itemDamageText = NodePath("WeaponShop Item Container/WeaponShop Item Container Vertical/Item Damage Text")
+itemTexture = NodePath("WeaponShop Item Container/WeaponShop Item Container Vertical/Item Texture Container/Item Texture")
+itemSelectionButton = NodePath("WeaponShop Item Container/Item Selection Button")
+textFont = ExtResource("2_o33b1")
+numberFont = ExtResource("3_1rvut")
+
+[node name="WeaponShop Item Container" type="MarginContainer" parent="."]
+custom_minimum_size = Vector2(288, 664)
+layout_mode = 2
+
+[node name="WeaponShop Item Container Vertical" type="VBoxContainer" parent="WeaponShop Item Container"]
+layout_mode = 2
+
+[node name="Control" type="Control" parent="WeaponShop Item Container/WeaponShop Item Container Vertical"]
+layout_mode = 2
+
+[node name="Item Name Text" type="Label" parent="WeaponShop Item Container/WeaponShop Item Container Vertical"]
+layout_mode = 2
+text = "اسم این آیتم"
+label_settings = SubResource("LabelSettings_pwq7b")
+horizontal_alignment = 1
+
+[node name="Control2" type="Control" parent="WeaponShop Item Container/WeaponShop Item Container Vertical"]
+custom_minimum_size = Vector2(0, 8)
+layout_mode = 2
+
+[node name="Item Texture Container" type="PanelContainer" parent="WeaponShop Item Container/WeaponShop Item Container Vertical"]
+layout_mode = 2
+size_flags_horizontal = 4
+size_flags_vertical = 4
+theme_override_styles/panel = SubResource("StyleBoxFlat_y3j5n")
+
+[node name="Item Texture" type="TextureRect" parent="WeaponShop Item Container/WeaponShop Item Container Vertical/Item Texture Container"]
+custom_minimum_size = Vector2(256, 256)
+layout_mode = 2
+size_flags_horizontal = 4
+size_flags_vertical = 4
+
+[node name="Item Price Text" type="RichTextLabel" parent="WeaponShop Item Container/WeaponShop Item Container Vertical"]
+clip_contents = false
+layout_mode = 2
+bbcode_enabled = true
+text = "قیمت این آیتم"
+fit_content = true
+scroll_active = false
+autowrap_mode = 0
+horizontal_alignment = 1
+
+[node name="Item Type Text" type="Label" parent="WeaponShop Item Container/WeaponShop Item Container Vertical"]
+layout_mode = 2
+text = "نوع این سلاح"
+label_settings = SubResource("LabelSettings_lbkpw")
+horizontal_alignment = 1
+
+[node name="Item Damage Text" type="RichTextLabel" parent="WeaponShop Item Container/WeaponShop Item Container Vertical"]
+clip_contents = false
+layout_mode = 2
+bbcode_enabled = true
+text = "آسیب این آیتم"
+fit_content = true
+scroll_active = false
+autowrap_mode = 0
+horizontal_alignment = 1
+
+[node name="Item Selection Button" type="Button" parent="WeaponShop Item Container"]
+layout_mode = 2
+size_flags_vertical = 8
+theme_override_fonts/font = ExtResource("1_3h4o4")
+theme_override_font_sizes/font_size = 64
+theme_override_styles/focus = SubResource("StyleBoxEmpty_46kn0")
+theme_override_styles/normal = SubResource("StyleBoxFlat_o33b1")
+text = "انتخاب"

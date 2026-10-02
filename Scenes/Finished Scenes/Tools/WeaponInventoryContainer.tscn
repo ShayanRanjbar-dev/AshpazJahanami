@@ -1,0 +1,87 @@
+[gd_scene load_steps=8 format=3 uid="uid://btjfw22ouls4c"]
+
+[ext_resource type="FontFile" uid="uid://6ks1p1rjslef" path="res://Assets/FONT/Arapix.otf" id="1_p07tt"]
+[ext_resource type="Script" uid="uid://ddd84vvb06pcy" path="res://Scripts/Finished Script/Custom Class Scripts/WeaponInventoryContainer.gd" id="1_q27x3"]
+
+[sub_resource type="StyleBoxFlat" id="StyleBoxFlat_q27x3"]
+content_margin_left = 16.0
+content_margin_top = 16.0
+content_margin_right = 16.0
+content_margin_bottom = 16.0
+bg_color = Color(0.75921, 0.396093, 0.999947, 1)
+border_width_left = 4
+border_width_top = 4
+border_width_right = 4
+border_width_bottom = 4
+border_color = Color(0.266667, 0, 0.396078, 1)
+
+[sub_resource type="LabelSettings" id="LabelSettings_ptri7"]
+font = ExtResource("1_p07tt")
+font_size = 64
+outline_size = 12
+outline_color = Color(0, 0, 0, 1)
+shadow_size = 12
+shadow_color = Color(0, 0, 0, 0.623529)
+shadow_offset = Vector2(0, 4)
+
+[sub_resource type="StyleBoxFlat" id="StyleBoxFlat_43co8"]
+content_margin_left = 16.0
+content_margin_top = 16.0
+content_margin_right = 16.0
+content_margin_bottom = 16.0
+bg_color = Color(0.514405, 0.00214894, 0.742152, 1)
+border_width_left = 4
+border_width_top = 4
+border_width_right = 4
+border_width_bottom = 4
+border_color = Color(0.266667, 0, 0.396078, 1)
+
+[sub_resource type="StyleBoxEmpty" id="StyleBoxEmpty_4dgrw"]
+
+[sub_resource type="StyleBoxFlat" id="StyleBoxFlat_n7sbg"]
+content_margin_left = 16.0
+content_margin_bottom = 16.0
+bg_color = Color(0.65098, 0.00392157, 0.933333, 1)
+border_width_left = 8
+border_width_top = 8
+border_width_right = 8
+border_width_bottom = 8
+border_color = Color(0.266667, 0, 0.396078, 1)
+
+[node name="Weapon Inventory Container" type="PanelContainer" node_paths=PackedStringArray("nameText", "texture")]
+offset_right = 40.0
+offset_bottom = 40.0
+mouse_filter = 2
+theme_override_styles/panel = SubResource("StyleBoxFlat_q27x3")
+script = ExtResource("1_q27x3")
+nameText = NodePath("Weapon Inventory Container Vertical/Weapon Name Text")
+texture = NodePath("Weapon Inventory Container Vertical/Weapon Texture Container/Weapon Texture")
+
+[node name="Weapon Inventory Container Vertical" type="VBoxContainer" parent="."]
+layout_mode = 2
+theme_override_constants/separation = 16
+
+[node name="Weapon Name Text" type="Label" parent="Weapon Inventory Container Vertical"]
+layout_mode = 2
+text = "Name"
+label_settings = SubResource("LabelSettings_ptri7")
+horizontal_alignment = 1
+
+[node name="Weapon Texture Container" type="PanelContainer" parent="Weapon Inventory Container Vertical"]
+layout_mode = 2
+mouse_filter = 1
+theme_override_styles/panel = SubResource("StyleBoxFlat_43co8")
+
+[node name="Weapon Texture" type="TextureRect" parent="Weapon Inventory Container Vertical/Weapon Texture Container"]
+custom_minimum_size = Vector2(128, 128)
+layout_mode = 2
+
+[node name="Weapon Select Button" type="Button" parent="Weapon Inventory Container Vertical"]
+layout_mode = 2
+theme_override_fonts/font = ExtResource("1_p07tt")
+theme_override_font_sizes/font_size = 64
+theme_override_styles/focus = SubResource("StyleBoxEmpty_4dgrw")
+theme_override_styles/normal = SubResource("StyleBoxFlat_n7sbg")
+text = "انتخاب"
+
+[connection signal="pressed" from="Weapon Inventory Container Vertical/Weapon Select Button" to="." method="WeaponSelectButtonPressed"]

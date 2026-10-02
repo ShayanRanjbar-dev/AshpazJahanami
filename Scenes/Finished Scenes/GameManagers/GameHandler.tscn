@@ -1,0 +1,10 @@
+[gd_scene load_steps=2 format=3 uid="uid://j7rrxkm0exlw"]
+
+[ext_resource type="Script" uid="uid://c5f6osw0fcnuf" path="res://Scripts/Finished Script/GameHandler.gd" id="1_58xxh"]
+
+[node name="GameHandler" type="Node" node_paths=PackedStringArray("gameTimer")]
+script = ExtResource("1_58xxh")
+gameTimer = NodePath("GameHandler Timer")
+
+[node name="GameHandler Timer" type="Timer" parent="."]
+one_shot = true

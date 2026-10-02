@@ -1,0 +1,65 @@
+[gd_scene load_steps=11 format=3 uid="uid://celhqg0dm25ha"]
+
+[ext_resource type="PackedScene" uid="uid://bwed1i66y4efq" path="res://Scenes/Finished Scenes/Weapons/BaseWeapon.tscn" id="1_cv6bg"]
+[ext_resource type="Script" uid="uid://cp7lk23gir5k8" path="res://Scripts/Finished Script/Custom Class Scripts/BaseLongRangeWeapon.gd" id="2_xx3v4"]
+[ext_resource type="Texture2D" uid="uid://603b85gfwdsg" path="res://Assets/PNG/Circle Particle.png" id="3_xx3v4"]
+
+[sub_resource type="Curve" id="Curve_2nlqh"]
+_data = [Vector2(0, 0), 0.0, 0.0, 0, 0, Vector2(0.249158, 1), 0.0, 0.0, 0, 0, Vector2(0.639731, 0.643836), 2.7595, 2.7595, 0, 0, Vector2(1, 0), 0.0, 0.0, 0, 0]
+point_count = 4
+
+[sub_resource type="CurveTexture" id="CurveTexture_i1gnk"]
+curve = SubResource("Curve_2nlqh")
+
+[sub_resource type="Gradient" id="Gradient_ff2bn"]
+offsets = PackedFloat32Array(0.162362, 0.354244, 0.575646, 0.767528, 0.922509)
+colors = PackedColorArray(1, 1, 1, 1, 0.762404, 0.762404, 0.762404, 1, 0.625597, 0.625597, 0.625597, 1, 0.564962, 0.564962, 0.564962, 1, 0.400698, 0.400698, 0.400698, 1)
+
+[sub_resource type="GradientTexture1D" id="GradientTexture1D_g6t1i"]
+gradient = SubResource("Gradient_ff2bn")
+
+[sub_resource type="Curve" id="Curve_eu6sp"]
+_limits = [0.0, 0.75, 0.0, 1.0]
+_data = [Vector2(0, 0), 0.0, 0.0, 0, 0, Vector2(0.191919, 0.75), 0.0, 0.0, 0, 0, Vector2(1, 0), 0.0, 0.0, 0, 0]
+point_count = 3
+
+[sub_resource type="CurveTexture" id="CurveTexture_xm8po"]
+curve = SubResource("Curve_eu6sp")
+
+[sub_resource type="ParticleProcessMaterial" id="ParticleProcessMaterial_0fyu1"]
+lifetime_randomness = 0.5
+particle_flag_disable_z = true
+particle_flag_damping_as_friction = true
+direction = Vector3(0, -1, 0)
+initial_velocity_min = 64.0
+initial_velocity_max = 192.0
+gravity = Vector3(0, 352, 0)
+scale_curve = SubResource("CurveTexture_xm8po")
+color_initial_ramp = SubResource("GradientTexture1D_g6t1i")
+alpha_curve = SubResource("CurveTexture_i1gnk")
+
+[node name="Base LongRange Weapon" node_paths=PackedStringArray("weaponSprite", "onScreenNotifier", "hitParticle") instance=ExtResource("1_cv6bg")]
+script = ExtResource("2_xx3v4")
+rangeSpeed = 700.0
+weaponSprite = NodePath("Weapon Sprite")
+onScreenNotifier = NodePath("Weapon OnScreen Notifier")
+hitParticle = NodePath("Weapon Hit Particle")
+
+[node name="Weapon Collision" parent="." index="0"]
+debug_color = Color(0.7, 0, 0.221667, 0.419608)
+
+[node name="Weapon OnScreen Notifier" type="VisibleOnScreenNotifier2D" parent="." index="1"]
+
+[node name="Weapon Sprite" parent="." index="2"]
+rotation = 1.5708
+
+[node name="Weapon Hit Particle" type="GPUParticles2D" parent="." index="3"]
+top_level = true
+emitting = false
+amount = 24
+texture = ExtResource("3_xx3v4")
+lifetime = 0.5
+one_shot = true
+explosiveness = 1.0
+fixed_fps = 60
+process_material = SubResource("ParticleProcessMaterial_0fyu1")

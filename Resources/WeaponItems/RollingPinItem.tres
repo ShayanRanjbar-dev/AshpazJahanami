@@ -1,0 +1,18 @@
+[gd_resource type="Resource" script_class="WeaponData" load_steps=5 format=3 uid="uid://up30k1463w5o"]
+
+[ext_resource type="Script" uid="uid://bpnrhe66or36n" path="res://Resources/WeaponItems/_WeaponData.gd" id="1_gmdgp"]
+[ext_resource type="PackedScene" uid="uid://bpg1vka1fmtqh" path="res://Scenes/Finished Scenes/Weapons/RollingPin.tscn" id="1_x6sjg"]
+[ext_resource type="Resource" uid="uid://8e743egfugko" path="res://Achievements/buy_rollingpin.tres" id="2_m4dr2"]
+[ext_resource type="Texture2D" uid="uid://ba6kd74qk8mkx" path="res://Assets/PNG/RollingPin.png" id="2_spxyi"]
+
+[resource]
+script = ExtResource("1_gmdgp")
+Name = "وردنه"
+WeaponTexture = ExtResource("2_spxyi")
+Scene = ExtResource("1_x6sjg")
+Type = "CloseRange"
+Damage = 30
+BuyPrice = 15
+SellPrice = 10
+WeaponAchievement = ExtResource("2_m4dr2")
+metadata/_custom_type_script = "uid://bpnrhe66or36n"

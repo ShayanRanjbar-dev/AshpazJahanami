@@ -1,0 +1,16 @@
+[gd_scene load_steps=4 format=3 uid="uid://yxyi2mnam6u3"]
+
+[ext_resource type="PackedScene" uid="uid://ll1a1pevemql" path="res://Scenes/Finished Scenes/Weapons/BaseCloseRangeWeapon.tscn" id="1_xrkh8"]
+[ext_resource type="Texture2D" uid="uid://ltutqs8m0obu" path="res://Assets/PNG/saucepan.png" id="2_k12tt"]
+
+[sub_resource type="CircleShape2D" id="CircleShape2D_upwfy"]
+radius = 32.0
+
+[node name="Saucepan" instance=ExtResource("1_xrkh8")]
+weaponDamage = 15
+
+[node name="Weapon Collision" parent="." index="0"]
+shape = SubResource("CircleShape2D_upwfy")
+
+[node name="Weapon Sprite" parent="." index="1"]
+texture = ExtResource("2_k12tt")

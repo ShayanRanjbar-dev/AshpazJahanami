@@ -1,0 +1,36 @@
+[gd_resource type="Resource" script_class="UpgradeItem" load_steps=10 format=3 uid="uid://ooxtrpt4bxgj"]
+
+[ext_resource type="Script" uid="uid://c6sj8aoq74b62" path="res://Resources/UpgradeItems/_UpgradeItem.gd" id="1_5y67u"]
+[ext_resource type="Script" uid="uid://c0vpj1xwiupb7" path="res://Resources/Modifiers/BaseModifiers.gd" id="1_t8bvo"]
+[ext_resource type="Texture2D" uid="uid://yabgl3hykgto" path="res://Assets/PNG/vase.png" id="2_dk437"]
+[ext_resource type="Resource" uid="uid://muee12cy8ro6" path="res://Resources/GameData/EnemyDataCable.tres" id="2_ruyas"]
+[ext_resource type="Script" uid="uid://b484ww51n4vgy" path="res://Resources/Modifiers/EnemyModifiers.gd" id="3_opw61"]
+[ext_resource type="Resource" uid="uid://dqv8v8ckx7mdt" path="res://Resources/GameData/PlayerDataCable.tres" id="4_nd63a"]
+[ext_resource type="Script" uid="uid://h6pr56igld2t" path="res://Resources/Modifiers/PlayerModifiers.gd" id="5_4j0ao"]
+
+[sub_resource type="Resource" id="Resource_t8bvo"]
+script = ExtResource("3_opw61")
+modifiers = "SpawnTime"
+cable = ExtResource("2_ruyas")
+modifierType = 1
+metadata/_custom_type_script = "uid://b484ww51n4vgy"
+
+[sub_resource type="Resource" id="Resource_ruyas"]
+script = ExtResource("5_4j0ao")
+modifiers = "CloseRotation"
+cable = ExtResource("4_nd63a")
+modifierType = 1
+metadata/_custom_type_script = "uid://h6pr56igld2t"
+
+[resource]
+script = ExtResource("1_5y67u")
+texture = ExtResource("2_dk437")
+Name = "گلدان"
+ProsList = Dictionary[String, ExtResource("1_t8bvo")]({
+"چرخش سلاح سرد": SubResource("Resource_ruyas")
+})
+ConsList = Dictionary[String, ExtResource("1_t8bvo")]({
+"زمان ایجاد دشمن": SubResource("Resource_t8bvo")
+})
+Price = 5
+metadata/_custom_type_script = "uid://c6sj8aoq74b62"

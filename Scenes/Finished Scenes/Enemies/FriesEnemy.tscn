@@ -1,0 +1,91 @@
+[gd_scene load_steps=17 format=3 uid="uid://bhpglhxogb7s8"]
+
+[ext_resource type="PackedScene" uid="uid://dfb5gfrilrmhs" path="res://Scenes/Finished Scenes/Enemies/BaseSuicideEnemy.tscn" id="1_2oc1v"]
+[ext_resource type="Shader" uid="uid://dohy3mk254ujm" path="res://Shaders/HitFlashShader.gdshader" id="2_b78in"]
+[ext_resource type="Texture2D" uid="uid://603b85gfwdsg" path="res://Assets/PNG/Circle Particle.png" id="4_b78in"]
+
+[sub_resource type="CircleShape2D" id="CircleShape2D_b78in"]
+radius = 32.0
+
+[sub_resource type="CircleShape2D" id="CircleShape2D_qm2ow"]
+radius = 30.0
+
+[sub_resource type="CircleShape2D" id="CircleShape2D_4ff08"]
+radius = 32.0
+
+[sub_resource type="CircleShape2D" id="CircleShape2D_jqra7"]
+radius = 256.0
+
+[sub_resource type="CircleShape2D" id="CircleShape2D_px0n3"]
+radius = 178.0
+
+[sub_resource type="ShaderMaterial" id="ShaderMaterial_qm2ow"]
+resource_local_to_scene = true
+shader = ExtResource("2_b78in")
+shader_parameter/flashValue = 0.0
+shader_parameter/flashColor = Color(1, 1, 1, 1)
+
+[sub_resource type="Curve" id="Curve_b78in"]
+_data = [Vector2(0, 0), 0.0, 0.0, 0, 0, Vector2(0.218855, 1), 0.0, 0.0, 0, 0, Vector2(0.481481, 0.599315), 0.0, 0.0, 0, 0, Vector2(0.693603, 0.80411), 0.0, 0.0, 0, 0, Vector2(1, 0.225342), 0.0, 0.0, 0, 0]
+point_count = 5
+
+[sub_resource type="CurveTexture" id="CurveTexture_qm2ow"]
+curve = SubResource("Curve_b78in")
+
+[sub_resource type="Gradient" id="Gradient_4ff08"]
+offsets = PackedFloat32Array(0.177122, 0.391144, 0.712177, 1)
+colors = PackedColorArray(1, 0, 0, 1, 1, 0.164706, 0, 1, 1, 0.544575, 0, 1, 1, 1, 0, 1)
+
+[sub_resource type="GradientTexture1D" id="GradientTexture1D_jqra7"]
+gradient = SubResource("Gradient_4ff08")
+
+[sub_resource type="Curve" id="Curve_px0n3"]
+_data = [Vector2(0, 0), 0.0, 0.0, 0, 0, Vector2(0.760943, 1), 0.0, 0.0, 0, 0, Vector2(0.942761, 0.439041), 1.23732, 0.0, 0, 0]
+point_count = 3
+
+[sub_resource type="CurveTexture" id="CurveTexture_mlpti"]
+curve = SubResource("Curve_px0n3")
+
+[sub_resource type="ParticleProcessMaterial" id="ParticleProcessMaterial_t6py5"]
+lifetime_randomness = 0.31
+particle_flag_disable_z = true
+spread = 180.0
+initial_velocity_min = 64.0
+initial_velocity_max = 348.0
+gravity = Vector3(0, 0, 0)
+scale_min = 0.0
+scale_max = 2.0
+scale_curve = SubResource("CurveTexture_mlpti")
+color_initial_ramp = SubResource("GradientTexture1D_jqra7")
+alpha_curve = SubResource("CurveTexture_qm2ow")
+
+[node name="Fries Enemy" instance=ExtResource("1_2oc1v")]
+enemyExplotionMaxTime = 2.0
+fullHealth = 80
+damage = 25
+speed = 175
+knockbackStrength = 200
+
+[node name="Enemy Collision" parent="." index="1"]
+shape = SubResource("CircleShape2D_b78in")
+
+[node name="CollisionShape2D" parent="Enemy Hitbox" index="0"]
+shape = SubResource("CircleShape2D_qm2ow")
+
+[node name="CollisionShape2D" parent="Enemy Hurtbox" index="0"]
+shape = SubResource("CircleShape2D_4ff08")
+
+[node name="CollisionShape2D" parent="Enemy Explode Trigger Area" index="0"]
+shape = SubResource("CircleShape2D_jqra7")
+
+[node name="CollisionShape2D" parent="Enemy Explodebox" index="0"]
+shape = SubResource("CircleShape2D_px0n3")
+
+[node name="Enemy Sprite" parent="." index="6"]
+material = SubResource("ShaderMaterial_qm2ow")
+region_rect = Rect2(4, 2, 56, 60)
+
+[node name="Enemy Explosion Particle" parent="." index="8"]
+amount = 128
+texture = ExtResource("4_b78in")
+process_material = SubResource("ParticleProcessMaterial_t6py5")

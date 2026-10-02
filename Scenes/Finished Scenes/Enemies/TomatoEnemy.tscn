@@ -1,0 +1,38 @@
+[gd_scene load_steps=7 format=3 uid="uid://7pi6u40l5veo"]
+
+[ext_resource type="PackedScene" uid="uid://dfcdi2glvvgda" path="res://Scenes/Finished Scenes/Enemies/BaseFollowerEnemy.tscn" id="1_wek55"]
+[ext_resource type="Shader" uid="uid://dohy3mk254ujm" path="res://Shaders/HitFlashShader.gdshader" id="3_7vt7m"]
+
+[sub_resource type="CircleShape2D" id="CircleShape2D_brrn1"]
+radius = 32.0
+
+[sub_resource type="CircleShape2D" id="CircleShape2D_ol02u"]
+radius = 30.0
+
+[sub_resource type="CircleShape2D" id="CircleShape2D_7vt7m"]
+radius = 32.0
+
+[sub_resource type="ShaderMaterial" id="ShaderMaterial_11j12"]
+resource_local_to_scene = true
+shader = ExtResource("3_7vt7m")
+shader_parameter/flashValue = 0.0
+shader_parameter/flashColor = Color(1, 1, 1, 1)
+
+[node name="Tomato Enemy" instance=ExtResource("1_wek55")]
+fullHealth = 20
+damage = 10
+speed = 150
+knockbackStrength = 200
+
+[node name="Enemy Collision" parent="." index="0"]
+shape = SubResource("CircleShape2D_brrn1")
+
+[node name="CollisionShape2D" parent="Enemy Hitbox" index="0"]
+shape = SubResource("CircleShape2D_ol02u")
+
+[node name="CollisionShape2D" parent="Enemy Hurtbox" index="0"]
+shape = SubResource("CircleShape2D_7vt7m")
+
+[node name="Enemy Sprite" parent="." index="3"]
+material = SubResource("ShaderMaterial_11j12")
+region_rect = Rect2(130, 4, 60, 56)

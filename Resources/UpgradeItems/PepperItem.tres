@@ -1,0 +1,36 @@
+[gd_resource type="Resource" script_class="UpgradeItem" load_steps=10 format=3 uid="uid://bwlb4jpwu12br"]
+
+[ext_resource type="Script" uid="uid://c6sj8aoq74b62" path="res://Resources/UpgradeItems/_UpgradeItem.gd" id="1_rufjg"]
+[ext_resource type="Script" uid="uid://c0vpj1xwiupb7" path="res://Resources/Modifiers/BaseModifiers.gd" id="1_xnryi"]
+[ext_resource type="Resource" uid="uid://muee12cy8ro6" path="res://Resources/GameData/EnemyDataCable.tres" id="2_37l3o"]
+[ext_resource type="Texture2D" uid="uid://cc57ydbg0mio3" path="res://Assets/PNG/pepper.png" id="2_snu2c"]
+[ext_resource type="Script" uid="uid://b484ww51n4vgy" path="res://Resources/Modifiers/EnemyModifiers.gd" id="3_86gbm"]
+[ext_resource type="Resource" uid="uid://dqv8v8ckx7mdt" path="res://Resources/GameData/PlayerDataCable.tres" id="4_86gbm"]
+[ext_resource type="Script" uid="uid://h6pr56igld2t" path="res://Resources/Modifiers/PlayerModifiers.gd" id="5_dyyic"]
+
+[sub_resource type="Resource" id="Resource_gcj7q"]
+script = ExtResource("3_86gbm")
+modifiers = "Damage"
+cable = ExtResource("2_37l3o")
+modifierType = 1
+metadata/_custom_type_script = "uid://b484ww51n4vgy"
+
+[sub_resource type="Resource" id="Resource_5dm0d"]
+script = ExtResource("5_dyyic")
+modifiers = "LongSpeed"
+cable = ExtResource("4_86gbm")
+modifierType = 1
+metadata/_custom_type_script = "uid://h6pr56igld2t"
+
+[resource]
+script = ExtResource("1_rufjg")
+texture = ExtResource("2_snu2c")
+Name = "فلفل قرمز"
+ProsList = Dictionary[String, ExtResource("1_xnryi")]({
+"سرعت سلاح گرم": SubResource("Resource_5dm0d")
+})
+ConsList = Dictionary[String, ExtResource("1_xnryi")]({
+"آسیب دشمن": SubResource("Resource_gcj7q")
+})
+Price = 6
+metadata/_custom_type_script = "uid://c6sj8aoq74b62"

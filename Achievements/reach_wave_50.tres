@@ -1,0 +1,19 @@
+[gd_resource type="Resource" script_class="Achievement" load_steps=4 format=3 uid="uid://c8f1kb7wj0cl7"]
+
+[ext_resource type="Texture2D" uid="uid://cg3b84ak8bsrv" path="res://addons/milestone/icons/hidden_achievement.svg" id="1_geh5b"]
+[ext_resource type="Texture2D" uid="uid://jpptklags7kl" path="res://Assets/PNG/Clock Trophy.png" id="2_geh5b"]
+[ext_resource type="Script" uid="uid://dtyojmellf4e5" path="res://addons/milestone/scripts/achievements/achievement.gd" id="3_g0wqu"]
+
+[resource]
+script = ExtResource("3_g0wqu")
+id = "reach_wave_50"
+icon = ExtResource("2_geh5b")
+icon_filter = 1
+hidden_icon = ExtResource("1_geh5b")
+name = "داداش به جوونیت رحم کن!"
+description = "داخل بازی به موج 50 برس"
+hidden = false
+considered_rare = false
+progressive = false
+progress_goal = 1.0
+indicate_progress_interval = 1

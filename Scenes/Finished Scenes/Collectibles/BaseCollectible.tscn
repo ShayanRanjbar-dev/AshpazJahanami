@@ -1,0 +1,68 @@
+[gd_scene load_steps=12 format=3 uid="uid://c74hcbhm2dvhu"]
+
+[ext_resource type="Script" uid="uid://cy8m7reael5lw" path="res://Scripts/Finished Script/Custom Class Scripts/BaseCollectible.gd" id="1_h14fh"]
+[ext_resource type="Texture2D" uid="uid://cc2mduqm1wot5" path="res://Assets/PNG/shadow.png" id="2_mh8cr"]
+[ext_resource type="AudioStream" uid="uid://843gjvlt8coj" path="res://Assets/SFX/Collectible Spawn SFX.wav" id="2_pxmbo"]
+[ext_resource type="AudioStream" uid="uid://tbukh4xj5ke3" path="res://Assets/SFX/Collectible PickUP SFX.wav" id="3_r7gw3"]
+[ext_resource type="Texture2D" uid="uid://603b85gfwdsg" path="res://Assets/PNG/Circle Particle.png" id="3_wvnth"]
+[ext_resource type="AudioStream" uid="uid://cvk6mp5o5r3ej" path="res://Assets/SFX/Collectible PickUp SFX 2.wav" id="4_ixpg2"]
+
+[sub_resource type="Gradient" id="Gradient_wvnth"]
+offsets = PackedFloat32Array(0.731183, 1)
+colors = PackedColorArray(1, 1, 1, 1, 1, 1, 1, 0)
+
+[sub_resource type="GradientTexture1D" id="GradientTexture1D_qhglj"]
+gradient = SubResource("Gradient_wvnth")
+
+[sub_resource type="Curve" id="Curve_qhglj"]
+_data = [Vector2(0, 0), 0.0, 0.0, 0, 0, Vector2(0.495082, 1), 0.0, 0.0, 0, 0, Vector2(1, 0.689655), 1.23732, 0.0, 0, 0]
+point_count = 3
+
+[sub_resource type="CurveTexture" id="CurveTexture_p55p6"]
+curve = SubResource("Curve_qhglj")
+
+[sub_resource type="ParticleProcessMaterial" id="ParticleProcessMaterial_pxmbo"]
+particle_flag_disable_z = true
+spread = 180.0
+initial_velocity_max = 96.0
+gravity = Vector3(0, 0, 0)
+scale_min = 0.0
+scale_curve = SubResource("CurveTexture_p55p6")
+color_ramp = SubResource("GradientTexture1D_qhglj")
+
+[node name="Base Collectible" type="Area2D" node_paths=PackedStringArray("collectibleSprite", "collectibleShadow", "collectibleSpawnParticle", "collectibleAudioPlayer")]
+y_sort_enabled = true
+collision_layer = 0
+collision_mask = 8
+monitoring = false
+monitorable = false
+script = ExtResource("1_h14fh")
+collectibleSprite = NodePath("Collectible Sprite")
+collectibleShadow = NodePath("Collectible Shadow Sprite")
+collectibleSpawnParticle = NodePath("Collectible Spawn Particle")
+collectibleAudioPlayer = NodePath("Collectible Audio Player")
+collectibleSpawnSFX = ExtResource("2_pxmbo")
+collectiblePickUpSFX = Array[AudioStream]([ExtResource("3_r7gw3"), ExtResource("4_ixpg2")])
+metadata/_custom_type_script = "uid://cy8m7reael5lw"
+
+[node name="Collectible Collision" type="CollisionShape2D" parent="."]
+debug_color = Color(0, 1, 0.14902, 0.419608)
+
+[node name="Collectible Shadow Sprite" type="Sprite2D" parent="."]
+texture = ExtResource("2_mh8cr")
+
+[node name="Collectible Sprite" type="Sprite2D" parent="."]
+
+[node name="Collectible Spawn Particle" type="GPUParticles2D" parent="."]
+emitting = false
+amount = 32
+texture = ExtResource("3_wvnth")
+lifetime = 0.5
+one_shot = true
+explosiveness = 1.0
+fixed_fps = 60
+process_material = SubResource("ParticleProcessMaterial_pxmbo")
+
+[node name="Collectible Audio Player" type="AudioStreamPlayer2D" parent="."]
+volume_db = 10.0
+bus = &"SoundEffects"

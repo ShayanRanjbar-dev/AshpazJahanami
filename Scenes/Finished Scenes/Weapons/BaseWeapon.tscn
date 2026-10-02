@@ -1,0 +1,14 @@
+[gd_scene load_steps=2 format=3 uid="uid://bwed1i66y4efq"]
+
+[ext_resource type="Script" uid="uid://cdddb6xv2c24j" path="res://Scripts/Finished Script/Custom Class Scripts/BaseWeapon.gd" id="1_weuiv"]
+
+[node name="Base Weapon" type="Area2D"]
+collision_layer = 4
+collision_mask = 0
+monitoring = false
+script = ExtResource("1_weuiv")
+metadata/_custom_type_script = "uid://cdddb6xv2c24j"
+
+[node name="Weapon Collision" type="CollisionShape2D" parent="."]
+
+[node name="Weapon Sprite" type="Sprite2D" parent="."]

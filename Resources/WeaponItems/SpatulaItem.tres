@@ -1,0 +1,16 @@
+[gd_resource type="Resource" script_class="WeaponData" load_steps=4 format=3 uid="uid://dwsibr8mrhepm"]
+
+[ext_resource type="PackedScene" uid="uid://ddamaafe48jps" path="res://Scenes/Finished Scenes/Weapons/Spatula.tscn" id="1_qctpc"]
+[ext_resource type="Texture2D" uid="uid://vsn3vf17ufem" path="res://Assets/PNG/spatula.png" id="2_4kvkk"]
+[ext_resource type="Script" path="res://Resources/WeaponItems/_WeaponData.gd" id="3_dkh0h"]
+
+[resource]
+script = ExtResource("3_dkh0h")
+Name = "کفگیر"
+WeaponTexture = ExtResource("2_4kvkk")
+Scene = ExtResource("1_qctpc")
+Type = "LongRange"
+Damage = 15
+BuyPrice = 7
+SellPrice = 5
+metadata/_custom_type_script = "uid://bpnrhe66or36n"

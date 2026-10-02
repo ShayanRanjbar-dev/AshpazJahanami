@@ -1,0 +1,20 @@
+[gd_scene load_steps=6 format=3 uid="uid://bd3qhhffya6e3"]
+
+[ext_resource type="Script" uid="uid://cqutc8ghb0gfe" path="res://Scripts/Finished Script/InputHandler.gd" id="1_cb8gg"]
+[ext_resource type="Script" uid="uid://i5bfwchteagr" path="res://addons/virtual_joystick/scripts/virtual_joystick.gd" id="2_s32js"]
+[ext_resource type="Texture2D" uid="uid://moxv4uh10yqj" path="res://Assets/PNG/virtual joystick holder 2.png" id="3_jq3v3"]
+[ext_resource type="Texture2D" uid="uid://cyt6mcherbcoq" path="res://Assets/PNG/virtual joystick nob 2.png" id="4_s32js"]
+[ext_resource type="Texture2D" uid="uid://c7qpp6xl17thi" path="res://Assets/PNG/virtual joystick nob Pressed 2.png" id="5_s32js"]
+
+[node name="InputHandler" type="Node"]
+script = ExtResource("1_cb8gg")
+
+[node name="Joystick CanvasLayer" type="CanvasLayer" parent="."]
+
+[node name="VirtualJoystick" type="Node2D" parent="Joystick CanvasLayer"]
+visible = false
+script = ExtResource("2_s32js")
+border = ExtResource("3_jq3v3")
+stick = ExtResource("4_s32js")
+stick_pressed = ExtResource("5_s32js")
+metadata/_custom_type_script = "uid://i5bfwchteagr"

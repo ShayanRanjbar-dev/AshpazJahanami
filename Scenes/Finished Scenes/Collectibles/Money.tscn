@@ -1,0 +1,45 @@
+[gd_scene load_steps=9 format=3 uid="uid://bwbujtevyreeq"]
+
+[ext_resource type="PackedScene" uid="uid://c74hcbhm2dvhu" path="res://Scenes/Finished Scenes/Collectibles/BaseCollectible.tscn" id="1_62i46"]
+[ext_resource type="Texture2D" uid="uid://bs6pasrfy1cgn" path="res://Assets/PNG/money.png" id="2_gjjai"]
+
+[sub_resource type="CircleShape2D" id="CircleShape2D_ys8rq"]
+radius = 20.0
+
+[sub_resource type="Gradient" id="Gradient_62i46"]
+offsets = PackedFloat32Array(0.258065, 0.659498, 1)
+colors = PackedColorArray(0.25098, 0.513726, 0.00784314, 1, 0.483333, 1, 0, 0.647059, 0.483333, 1, 0, 0)
+
+[sub_resource type="GradientTexture1D" id="GradientTexture1D_gjjai"]
+gradient = SubResource("Gradient_62i46")
+
+[sub_resource type="Curve" id="Curve_ys8rq"]
+_data = [Vector2(0, 0), 0.0, 0.0, 0, 0, Vector2(0.495082, 1), 0.0, 0.0, 0, 0, Vector2(1, 0.689655), 1.23732, 0.0, 0, 0]
+point_count = 3
+
+[sub_resource type="CurveTexture" id="CurveTexture_khrtk"]
+curve = SubResource("Curve_ys8rq")
+
+[sub_resource type="ParticleProcessMaterial" id="ParticleProcessMaterial_tac0u"]
+particle_flag_disable_z = true
+spread = 180.0
+initial_velocity_max = 96.0
+gravity = Vector3(0, 0, 0)
+scale_min = 0.0
+scale_curve = SubResource("CurveTexture_khrtk")
+color_ramp = SubResource("GradientTexture1D_gjjai")
+
+[node name="Money" instance=ExtResource("1_62i46")]
+collectibleType = "Money"
+
+[node name="Collectible Collision" parent="." index="0"]
+shape = SubResource("CircleShape2D_ys8rq")
+
+[node name="Collectible Shadow Sprite" parent="." index="1"]
+offset = Vector2(0, 16)
+
+[node name="Collectible Sprite" parent="." index="2"]
+texture = ExtResource("2_gjjai")
+
+[node name="Collectible Spawn Particle" parent="." index="3"]
+process_material = SubResource("ParticleProcessMaterial_tac0u")

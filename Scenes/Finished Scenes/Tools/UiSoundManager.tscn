@@ -1,0 +1,29 @@
+[gd_scene load_steps=12 format=3 uid="uid://cemwtdv7b2uaf"]
+
+[ext_resource type="Script" uid="uid://bgdxnqq4ipbt0" path="res://Scripts/Finished Script/UiSoundManager.gd" id="1_cpqow"]
+[ext_resource type="AudioStream" uid="uid://by0pxay68tcqo" path="res://Assets/SFX/Ui Open SFX.wav" id="2_v1ls3"]
+[ext_resource type="AudioStream" uid="uid://cy4rislc8noum" path="res://Assets/SFX/Ui Close SFX.wav" id="3_ylyvj"]
+[ext_resource type="AudioStream" uid="uid://d0ojvi73bsqgm" path="res://Assets/SFX/Ui Error SFX.wav" id="4_pdica"]
+[ext_resource type="AudioStream" uid="uid://bco2v6yd82ebm" path="res://Assets/SFX/Ui Reset Progress SFX.wav" id="4_v1ls3"]
+[ext_resource type="AudioStream" uid="uid://bbtxkwiugjkkx" path="res://Assets/SFX/Ui Click OFF SFX.wav" id="4_wky21"]
+[ext_resource type="AudioStream" uid="uid://510oouidppok" path="res://Assets/SFX/Ui Click ON SFX.wav" id="5_b1jrp"]
+[ext_resource type="AudioStream" uid="uid://brk57fwftm8xd" path="res://Assets/SFX/Ui Accept SFX.wav" id="5_uuump"]
+[ext_resource type="AudioStream" uid="uid://6wy1qtpwmuqb" path="res://Assets/SFX/Ui Select SFX.wav" id="7_8tbmr"]
+[ext_resource type="AudioStream" uid="uid://bd3x37lkjit6a" path="res://Assets/SFX/Ui Save SFX.wav" id="7_uuump"]
+[ext_resource type="AudioStream" uid="uid://jwdx7ond6brn" path="res://Assets/SFX/Ui Progress SFX.wav" id="8_b1jrp"]
+
+[node name="Ui SoundManager" type="AudioStreamPlayer"]
+volume_db = -5.0
+bus = &"SoundEffects"
+script = ExtResource("1_cpqow")
+uiAcceptSFX = ExtResource("5_uuump")
+uiClickOffSFX = ExtResource("4_wky21")
+uiClickOnSFX = ExtResource("5_b1jrp")
+uiCloseSFX = ExtResource("3_ylyvj")
+uiErrorSFX = ExtResource("4_pdica")
+uiOpenSFX = ExtResource("2_v1ls3")
+uiProgressSFX = ExtResource("8_b1jrp")
+uiResetProgressSFX = ExtResource("4_v1ls3")
+uiSaveSFX = ExtResource("7_uuump")
+uiSelectSFX = ExtResource("7_8tbmr")
+metadata/_custom_type_script = "uid://bgdxnqq4ipbt0"

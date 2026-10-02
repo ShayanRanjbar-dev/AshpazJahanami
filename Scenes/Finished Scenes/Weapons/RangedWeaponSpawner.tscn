@@ -1,0 +1,14 @@
+[gd_scene load_steps=3 format=3 uid="uid://dks27vn6ye24y"]
+
+[ext_resource type="Script" uid="uid://df5kcsvfknpth" path="res://Scripts/Finished Script/Custom Class Scripts/RangedWeaponSpawner.gd" id="1_vhrwe"]
+[ext_resource type="AudioStream" uid="uid://ykyg3qhoucol" path="res://Assets/SFX/Long Range Weapon SFX.wav" id="2_xnsbp"]
+
+[node name="Player Rnaged Weapon Holder" type="Node2D" node_paths=PackedStringArray("longRangeWeaponSFXPlayer")]
+script = ExtResource("1_vhrwe")
+longRangeWeaponSFXPlayer = NodePath("long RangeWeapon SFXPlayer")
+metadata/_custom_type_script = "uid://df5kcsvfknpth"
+
+[node name="long RangeWeapon SFXPlayer" type="AudioStreamPlayer2D" parent="."]
+stream = ExtResource("2_xnsbp")
+volume_db = 10.0
+bus = &"SoundEffects"

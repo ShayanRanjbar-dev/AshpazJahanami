@@ -1,0 +1,19 @@
+[gd_resource type="Resource" script_class="Achievement" load_steps=4 format=3 uid="uid://cs8nkpmd2mw0m"]
+
+[ext_resource type="Texture2D" uid="uid://cg3b84ak8bsrv" path="res://addons/milestone/icons/hidden_achievement.svg" id="1_oeha1"]
+[ext_resource type="Texture2D" uid="uid://b7pw5gflhbqxh" path="res://Assets/PNG/Chopstick Trophy.png" id="2_oeha1"]
+[ext_resource type="Script" uid="uid://dtyojmellf4e5" path="res://addons/milestone/scripts/achievements/achievement.gd" id="3_dl6hu"]
+
+[resource]
+script = ExtResource("3_dl6hu")
+id = "buy_chopstick"
+icon = ExtResource("2_oeha1")
+icon_filter = 1
+hidden_icon = ExtResource("1_oeha1")
+name = "میبینم غذای ژاپنی دوس داری!"
+description = "چاپستیک رو از فروشگاه بخر"
+hidden = false
+considered_rare = false
+progressive = false
+progress_goal = 1.0
+indicate_progress_interval = 1

@@ -1,0 +1,36 @@
+[gd_resource type="Resource" script_class="UpgradeItem" load_steps=10 format=3 uid="uid://db0hnajf00w15"]
+
+[ext_resource type="Script" uid="uid://c6sj8aoq74b62" path="res://Resources/UpgradeItems/_UpgradeItem.gd" id="1_pywkj"]
+[ext_resource type="Script" uid="uid://c0vpj1xwiupb7" path="res://Resources/Modifiers/BaseModifiers.gd" id="1_q8e0c"]
+[ext_resource type="Resource" uid="uid://jyhtkyoyri3o" path="res://Resources/GameData/CollectibleDataCable.tres" id="2_1n0kq"]
+[ext_resource type="Texture2D" uid="uid://bgc7va8phrjy1" path="res://Assets/PNG/wings.png" id="2_nrfgx"]
+[ext_resource type="Script" uid="uid://dieiryxjypc00" path="res://Resources/Modifiers/CollectibleModifiers.gd" id="3_2t3l4"]
+[ext_resource type="Resource" uid="uid://dqv8v8ckx7mdt" path="res://Resources/GameData/PlayerDataCable.tres" id="4_xpbsj"]
+[ext_resource type="Script" uid="uid://h6pr56igld2t" path="res://Resources/Modifiers/PlayerModifiers.gd" id="5_8cuav"]
+
+[sub_resource type="Resource" id="Resource_q8e0c"]
+script = ExtResource("3_2t3l4")
+modifiers = "ChefHatValue"
+cable = ExtResource("2_1n0kq")
+modifierType = -1
+metadata/_custom_type_script = "uid://dieiryxjypc00"
+
+[sub_resource type="Resource" id="Resource_1n0kq"]
+script = ExtResource("5_8cuav")
+modifiers = "Speed"
+cable = ExtResource("4_xpbsj")
+modifierType = 1
+metadata/_custom_type_script = "uid://h6pr56igld2t"
+
+[resource]
+script = ExtResource("1_pywkj")
+texture = ExtResource("2_nrfgx")
+Name = "بال"
+ProsList = Dictionary[String, ExtResource("1_q8e0c")]({
+"سرعت": SubResource("Resource_1n0kq")
+})
+ConsList = Dictionary[String, ExtResource("1_q8e0c")]({
+"ارزش کلاه": SubResource("Resource_q8e0c")
+})
+Price = 5
+metadata/_custom_type_script = "uid://c6sj8aoq74b62"

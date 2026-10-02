@@ -1,0 +1,28 @@
+[gd_scene load_steps=5 format=3 uid="uid://b0gg0ybbdl5hh"]
+
+[ext_resource type="PackedScene" uid="uid://yt2mlpcrr0pt" path="res://Scenes/Finished Scenes/Enemies/BaseEnemyBullet.tscn" id="1_7736k"]
+[ext_resource type="Texture2D" uid="uid://bmqxy8731p6ox" path="res://Assets/PNG/cookie attack.png" id="2_w1sql"]
+[ext_resource type="AudioStream" uid="uid://dpwt6ava4p25s" path="res://Assets/SFX/Cookie Bullet SFX.wav" id="3_w1sql"]
+
+[sub_resource type="CircleShape2D" id="CircleShape2D_7736k"]
+radius = 12.0
+
+[node name="Cookie Bullet" node_paths=PackedStringArray("bulletSFX") instance=ExtResource("1_7736k")]
+bulletSFX = NodePath("Bullet SFX")
+damage = 15
+speed = 550
+
+[node name="Bullet Collision" parent="." index="0"]
+shape = SubResource("CircleShape2D_7736k")
+
+[node name="Bullet OnScreen Notifier" parent="." index="1"]
+position = Vector2(8.9407e-08, -8.9407e-08)
+scale = Vector2(1.2, 1.2)
+
+[node name="Bullet Sprite" parent="." index="2"]
+texture = ExtResource("2_w1sql")
+
+[node name="Bullet SFX" parent="." index="3"]
+stream = ExtResource("3_w1sql")
+volume_db = 10.0
+autoplay = false

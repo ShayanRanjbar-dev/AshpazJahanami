@@ -1,0 +1,10 @@
+[gd_resource type="Resource" script_class="Cable" load_steps=2 format=3 uid="uid://muee12cy8ro6"]
+
+[ext_resource type="Script" uid="uid://bu8qa53bmqorh" path="res://addons/cables/scripts/core/cable.gd" id="1_w7473"]
+
+[resource]
+script = ExtResource("1_w7473")
+replay_on_link = false
+debug_trace = false
+debug_description = ""
+metadata/_custom_type_script = "uid://bu8qa53bmqorh"

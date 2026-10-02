@@ -1,0 +1,16 @@
+[gd_scene load_steps=4 format=3 uid="uid://bpg1vka1fmtqh"]
+
+[ext_resource type="PackedScene" uid="uid://ll1a1pevemql" path="res://Scenes/Finished Scenes/Weapons/BaseCloseRangeWeapon.tscn" id="1_bdmws"]
+[ext_resource type="Texture2D" uid="uid://ba6kd74qk8mkx" path="res://Assets/PNG/RollingPin.png" id="1_g8jj7"]
+
+[sub_resource type="CircleShape2D" id="CircleShape2D_q44xd"]
+radius = 32.0
+
+[node name="RollingPen" instance=ExtResource("1_bdmws")]
+weaponDamage = 30
+
+[node name="Weapon Collision" parent="." index="0"]
+shape = SubResource("CircleShape2D_q44xd")
+
+[node name="Weapon Sprite" parent="." index="1"]
+texture = ExtResource("1_g8jj7")

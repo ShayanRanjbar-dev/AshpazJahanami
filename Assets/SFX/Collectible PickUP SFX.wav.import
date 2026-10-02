@@ -1,0 +1,24 @@
+[remap]
+
+importer="wav"
+type="AudioStreamWAV"
+uid="uid://tbukh4xj5ke3"
+path="res://.godot/imported/Collectible PickUP SFX.wav-9c5018424717daa0ac2e31fee950eceb.sample"
+
+[deps]
+
+source_file="res://Assets/SFX/Collectible PickUP SFX.wav"
+dest_files=["res://.godot/imported/Collectible PickUP SFX.wav-9c5018424717daa0ac2e31fee950eceb.sample"]
+
+[params]
+
+force/8_bit=false
+force/mono=false
+force/max_rate=false
+force/max_rate_hz=44100
+edit/trim=false
+edit/normalize=false
+edit/loop_mode=0
+edit/loop_begin=0
+edit/loop_end=-1
+compress/mode=2

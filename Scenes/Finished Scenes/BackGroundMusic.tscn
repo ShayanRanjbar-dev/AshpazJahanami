@@ -1,0 +1,21 @@
+[gd_scene load_steps=6 format=3 uid="uid://dt4c3h654734f"]
+
+[ext_resource type="AudioStream" uid="uid://dwqxpwlm4nios" path="res://Assets/MUSIC/Arcade.ogg" id="1_kyqhd"]
+[ext_resource type="Script" uid="uid://cdhxkwjmq8aon" path="res://Scripts/Finished Script/BackGroundMusics.gd" id="1_xr3g0"]
+[ext_resource type="AudioStream" uid="uid://vordm7jbe4dy" path="res://Assets/MUSIC/Roll Credits.ogg" id="2_vo17o"]
+[ext_resource type="AudioStream" uid="uid://d30nlw0dc46qo" path="res://Assets/MUSIC/Terrorizer.ogg" id="3_q72qv"]
+[ext_resource type="AudioStream" uid="uid://b6ghq3po4hawt" path="res://Assets/MUSIC/Ludum Dare.ogg" id="4_w1tbx"]
+
+[node name="BackGround Musics" type="Node" node_paths=PackedStringArray("firstMusicPlayer", "secondMusicPlayer")]
+script = ExtResource("1_xr3g0")
+firstMusicPlayer = NodePath("First Music Player")
+secondMusicPlayer = NodePath("Second Music Player")
+musicTracks = Array[AudioStream]([ExtResource("4_w1tbx"), ExtResource("1_kyqhd"), ExtResource("2_vo17o"), ExtResource("3_q72qv")])
+
+[node name="First Music Player" type="AudioStreamPlayer" parent="."]
+volume_db = -15.0
+bus = &"Music"
+
+[node name="Second Music Player" type="AudioStreamPlayer" parent="."]
+volume_db = -10.0
+bus = &"Music"

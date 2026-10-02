@@ -1,0 +1,16 @@
+[gd_scene load_steps=4 format=3 uid="uid://ll1a1pevemql"]
+
+[ext_resource type="PackedScene" uid="uid://bwed1i66y4efq" path="res://Scenes/Finished Scenes/Weapons/BaseWeapon.tscn" id="1_di5uk"]
+[ext_resource type="Script" uid="uid://irpftax3xxif" path="res://Scripts/Finished Script/Custom Class Scripts/BaseCloseRangeWeapon.gd" id="2_oaa18"]
+[ext_resource type="AudioStream" uid="uid://otc8qmlmyojc" path="res://Assets/SFX/Close Range Weapon SFX.wav" id="3_oaa18"]
+
+[node name="Base CloseRange Weapon" node_paths=PackedStringArray("weaponSprite", "closeRangeHitSFX") instance=ExtResource("1_di5uk")]
+script = ExtResource("2_oaa18")
+weaponSprite = NodePath("Weapon Sprite")
+closeRangeHitSFX = NodePath("CloseRange Hit SFX")
+
+[node name="Weapon Collision" parent="." index="0"]
+debug_color = Color(0.653333, 0, 0.7, 0.419608)
+
+[node name="CloseRange Hit SFX" type="AudioStreamPlayer2D" parent="." index="2"]
+stream = ExtResource("3_oaa18")

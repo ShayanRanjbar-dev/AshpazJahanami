@@ -1,0 +1,133 @@
+[gd_scene load_steps=14 format=3 uid="uid://3juf1v6dmxnc"]
+
+[ext_resource type="FontFile" uid="uid://6ks1p1rjslef" path="res://Assets/FONT/Arapix.otf" id="1_5skfe"]
+[ext_resource type="StyleBox" uid="uid://di22yaseqqjkf" path="res://Themes/LockedPanelContainer.tres" id="1_6rvog"]
+[ext_resource type="Script" uid="uid://ck8d5vohrbhcm" path="res://Scripts/Finished Script/Custom Class Scripts/CharacterSelectionContainer.gd" id="1_ga1sa"]
+[ext_resource type="StyleBox" uid="uid://svhxrdialvtr" path="res://Themes/SelectedPanelContainer.tres" id="3_6rvog"]
+[ext_resource type="StyleBox" uid="uid://csove8g8ixs3x" path="res://Themes/UnSelectedPanelContainer.tres" id="3_l54py"]
+[ext_resource type="FontFile" uid="uid://dc87qed1m0283" path="res://Themes/ArapixRitchTextLableFont.tres" id="5_h22rb"]
+[ext_resource type="FontFile" uid="uid://c1w3machijxa2" path="res://Themes/EditundoRitchTextLableFont.tres" id="6_xeq0y"]
+
+[sub_resource type="LabelSettings" id="LabelSettings_mprwd"]
+font = ExtResource("1_5skfe")
+font_size = 64
+outline_size = 5
+outline_color = Color(0, 0, 0, 1)
+shadow_size = 14
+shadow_color = Color(0, 0, 0, 0.717647)
+shadow_offset = Vector2(1, 1.45)
+
+[sub_resource type="StyleBoxLine" id="StyleBoxLine_4jj6o"]
+color = Color(1, 1, 1, 1)
+grow_begin = 14.0
+grow_end = 14.0
+thickness = 4
+
+[sub_resource type="StyleBoxLine" id="StyleBoxLine_yruor"]
+color = Color(1, 1, 1, 1)
+grow_begin = 14.0
+grow_end = 14.0
+thickness = 4
+
+[sub_resource type="StyleBoxLine" id="StyleBoxLine_l2wpj"]
+color = Color(1, 1, 1, 1)
+grow_begin = 14.0
+grow_end = 14.0
+thickness = 4
+
+[sub_resource type="StyleBoxEmpty" id="StyleBoxEmpty_krh7o"]
+
+[sub_resource type="StyleBoxFlat" id="StyleBoxFlat_rjpk3"]
+content_margin_left = 16.0
+content_margin_top = 16.0
+content_margin_right = 16.0
+content_margin_bottom = 16.0
+bg_color = Color(1, 1, 1, 1)
+border_width_left = 6
+border_width_top = 8
+border_width_right = 8
+border_width_bottom = 8
+border_color = Color(0.662745, 0.662745, 0.662745, 1)
+corner_radius_top_left = 32
+corner_radius_top_right = 32
+corner_radius_bottom_right = 32
+corner_radius_bottom_left = 32
+
+[node name="Character Selection Container" type="PanelContainer"]
+mouse_filter = 1
+theme_override_styles/panel = ExtResource("3_l54py")
+script = ExtResource("1_ga1sa")
+unselected = ExtResource("3_l54py")
+selected = ExtResource("3_6rvog")
+locked = ExtResource("1_6rvog")
+mainFont = ExtResource("5_h22rb")
+numberFont = ExtResource("6_xeq0y")
+
+[node name="Character Container Vertical" type="VBoxContainer" parent="."]
+layout_mode = 2
+size_flags_horizontal = 4
+size_flags_vertical = 4
+theme_override_constants/separation = 16
+
+[node name="Character Name Text" type="Label" parent="Character Container Vertical"]
+layout_mode = 2
+size_flags_horizontal = 4
+mouse_filter = 1
+text = "نام کاراکتر"
+label_settings = SubResource("LabelSettings_mprwd")
+
+[node name="Horzontal Line Break" type="HSeparator" parent="Character Container Vertical"]
+layout_mode = 2
+size_flags_vertical = 4
+mouse_filter = 1
+theme_override_styles/separator = SubResource("StyleBoxLine_4jj6o")
+
+[node name="Character Texture" type="TextureRect" parent="Character Container Vertical"]
+custom_minimum_size = Vector2(256, 256)
+layout_mode = 2
+size_flags_horizontal = 4
+size_flags_vertical = 4
+
+[node name="Horzontal Line Break2" type="HSeparator" parent="Character Container Vertical"]
+layout_mode = 2
+size_flags_vertical = 4
+mouse_filter = 1
+theme_override_styles/separator = SubResource("StyleBoxLine_yruor")
+
+[node name="Character Ability Text" type="RichTextLabel" parent="Character Container Vertical"]
+clip_contents = false
+custom_minimum_size = Vector2(302, 150)
+layout_mode = 2
+size_flags_horizontal = 4
+mouse_filter = 1
+bbcode_enabled = true
+text = "سرعت معمولی
+پس زدن معمولی
+مقدار خون معمولی"
+fit_content = true
+autowrap_mode = 0
+horizontal_alignment = 1
+vertical_alignment = 1
+
+[node name="Horzontal Line Break3" type="HSeparator" parent="Character Container Vertical"]
+layout_mode = 2
+size_flags_vertical = 4
+mouse_filter = 1
+theme_override_styles/separator = SubResource("StyleBoxLine_l2wpj")
+
+[node name="Character Selection Button" type="Button" parent="Character Container Vertical"]
+layout_mode = 2
+size_flags_horizontal = 4
+size_flags_vertical = 4
+theme_override_colors/font_hover_color = Color(0, 0, 0, 1)
+theme_override_colors/font_color = Color(0, 0, 0, 1)
+theme_override_colors/font_focus_color = Color(0, 0, 0, 1)
+theme_override_colors/font_pressed_color = Color(1, 1, 1, 1)
+theme_override_fonts/font = ExtResource("1_5skfe")
+theme_override_font_sizes/font_size = 56
+theme_override_styles/focus = SubResource("StyleBoxEmpty_krh7o")
+theme_override_styles/hover = SubResource("StyleBoxFlat_rjpk3")
+theme_override_styles/normal = SubResource("StyleBoxFlat_rjpk3")
+text = "انتخاب"
+
+[connection signal="pressed" from="Character Container Vertical/Character Selection Button" to="." method="CharacterSelectionButtonPressed"]

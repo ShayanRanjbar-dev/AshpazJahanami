@@ -1,0 +1,16 @@
+[gd_scene load_steps=4 format=3 uid="uid://ny7rx1jvxh6l"]
+
+[ext_resource type="PackedScene" uid="uid://ll1a1pevemql" path="res://Scenes/Finished Scenes/Weapons/BaseCloseRangeWeapon.tscn" id="1_w2qrt"]
+[ext_resource type="Texture2D" uid="uid://bmhitdkyor4tr" path="res://Assets/PNG/pot.png" id="2_0m65x"]
+
+[sub_resource type="CircleShape2D" id="CircleShape2D_f0sg6"]
+radius = 32.0
+
+[node name="Pot" instance=ExtResource("1_w2qrt")]
+weaponDamage = 20
+
+[node name="Weapon Collision" parent="." index="0"]
+shape = SubResource("CircleShape2D_f0sg6")
+
+[node name="Weapon Sprite" parent="." index="1"]
+texture = ExtResource("2_0m65x")

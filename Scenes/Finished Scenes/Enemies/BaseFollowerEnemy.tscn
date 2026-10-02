@@ -1,0 +1,17 @@
+[gd_scene load_steps=5 format=3 uid="uid://dfcdi2glvvgda"]
+
+[ext_resource type="Script" uid="uid://d0i7kljnw0twl" path="res://Scripts/Finished Script/EnemyFollowerAi.gd" id="1_err7g"]
+[ext_resource type="PackedScene" uid="uid://bcsq3aq5pet2t" path="res://Scenes/Finished Scenes/Enemies/BaseEnemy.tscn" id="1_p58yd"]
+[ext_resource type="Shader" uid="uid://dohy3mk254ujm" path="res://Shaders/HitFlashShader.gdshader" id="3_ymbhy"]
+
+[sub_resource type="ShaderMaterial" id="ShaderMaterial_tplng"]
+resource_local_to_scene = true
+shader = ExtResource("3_ymbhy")
+shader_parameter/flashValue = 0.0
+shader_parameter/flashColor = Color(1, 1, 1, 1)
+
+[node name="Base Follower Enemy" instance=ExtResource("1_p58yd")]
+script = ExtResource("1_err7g")
+
+[node name="Enemy Sprite" parent="." index="3"]
+material = SubResource("ShaderMaterial_tplng")

@@ -1,0 +1,36 @@
+[gd_resource type="Resource" script_class="UpgradeItem" load_steps=10 format=3 uid="uid://ih8eixkxwvq4"]
+
+[ext_resource type="Texture2D" uid="uid://4mobntqlj88g" path="res://Assets/PNG/mustache.png" id="1_icagu"]
+[ext_resource type="Script" uid="uid://c6sj8aoq74b62" path="res://Resources/UpgradeItems/_UpgradeItem.gd" id="1_lymo4"]
+[ext_resource type="Script" uid="uid://c0vpj1xwiupb7" path="res://Resources/Modifiers/BaseModifiers.gd" id="1_s3usq"]
+[ext_resource type="Script" uid="uid://b484ww51n4vgy" path="res://Resources/Modifiers/EnemyModifiers.gd" id="2_nv7rs"]
+[ext_resource type="Resource" uid="uid://muee12cy8ro6" path="res://Resources/GameData/EnemyDataCable.tres" id="2_ph713"]
+[ext_resource type="Resource" uid="uid://dqv8v8ckx7mdt" path="res://Resources/GameData/PlayerDataCable.tres" id="3_ph713"]
+[ext_resource type="Script" uid="uid://h6pr56igld2t" path="res://Resources/Modifiers/PlayerModifiers.gd" id="4_ctpp3"]
+
+[sub_resource type="Resource" id="Resource_s3usq"]
+script = ExtResource("2_nv7rs")
+modifiers = "Speed"
+cable = ExtResource("2_ph713")
+modifierType = 1
+metadata/_custom_type_script = "uid://b484ww51n4vgy"
+
+[sub_resource type="Resource" id="Resource_nv7rs"]
+script = ExtResource("4_ctpp3")
+modifiers = "LongDamage"
+cable = ExtResource("3_ph713")
+modifierType = 1
+metadata/_custom_type_script = "uid://h6pr56igld2t"
+
+[resource]
+script = ExtResource("1_lymo4")
+texture = ExtResource("1_icagu")
+Name = "سیبیل"
+ProsList = Dictionary[String, ExtResource("1_s3usq")]({
+"آسیب سلاح گرم": SubResource("Resource_nv7rs")
+})
+ConsList = Dictionary[String, ExtResource("1_s3usq")]({
+"سرعت دشمن": SubResource("Resource_s3usq")
+})
+Price = 4
+metadata/_custom_type_script = "uid://c6sj8aoq74b62"

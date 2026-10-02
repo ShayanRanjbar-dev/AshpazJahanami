@@ -1,0 +1,36 @@
+[gd_resource type="Resource" script_class="UpgradeItem" load_steps=10 format=3 uid="uid://c6qm2ptlq0xyn"]
+
+[ext_resource type="Script" uid="uid://c0vpj1xwiupb7" path="res://Resources/Modifiers/BaseModifiers.gd" id="1_7daoc"]
+[ext_resource type="Resource" uid="uid://dqv8v8ckx7mdt" path="res://Resources/GameData/PlayerDataCable.tres" id="2_kcimb"]
+[ext_resource type="Script" uid="uid://c6sj8aoq74b62" path="res://Resources/UpgradeItems/_UpgradeItem.gd" id="2_ncfd3"]
+[ext_resource type="Script" uid="uid://h6pr56igld2t" path="res://Resources/Modifiers/PlayerModifiers.gd" id="3_8jure"]
+[ext_resource type="Texture2D" uid="uid://4faex8bxbmdi" path="res://Assets/PNG/battery.png" id="3_b76h8"]
+[ext_resource type="Resource" uid="uid://jyhtkyoyri3o" path="res://Resources/GameData/CollectibleDataCable.tres" id="4_cj1yn"]
+[ext_resource type="Script" uid="uid://dieiryxjypc00" path="res://Resources/Modifiers/CollectibleModifiers.gd" id="5_ee1tv"]
+
+[sub_resource type="Resource" id="Resource_8jure"]
+script = ExtResource("3_8jure")
+modifiers = "Health"
+cable = ExtResource("2_kcimb")
+modifierType = -1
+metadata/_custom_type_script = "uid://h6pr56igld2t"
+
+[sub_resource type="Resource" id="Resource_kcimb"]
+script = ExtResource("5_ee1tv")
+modifiers = "SpawnTime"
+cable = ExtResource("4_cj1yn")
+modifierType = -1
+metadata/_custom_type_script = "uid://dieiryxjypc00"
+
+[resource]
+script = ExtResource("2_ncfd3")
+texture = ExtResource("3_b76h8")
+Name = "باتری"
+ProsList = Dictionary[String, ExtResource("1_7daoc")]({
+"زمان ایجاد آیتم": SubResource("Resource_kcimb")
+})
+ConsList = Dictionary[String, ExtResource("1_7daoc")]({
+"سلامت": SubResource("Resource_8jure")
+})
+Price = 2
+metadata/_custom_type_script = "uid://c6sj8aoq74b62"

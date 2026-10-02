@@ -1,0 +1,25 @@
+[gd_scene load_steps=5 format=3 uid="uid://cspqm7b8fdfj1"]
+
+[ext_resource type="PackedScene" uid="uid://yt2mlpcrr0pt" path="res://Scenes/Finished Scenes/Enemies/BaseEnemyBullet.tscn" id="1_bk8n8"]
+[ext_resource type="Texture2D" uid="uid://ybq7r4n18wfx" path="res://Assets/PNG/king attack.png" id="2_1penj"]
+[ext_resource type="AudioStream" uid="uid://dpwt6ava4p25s" path="res://Assets/SFX/Cookie Bullet SFX.wav" id="3_1penj"]
+
+[sub_resource type="CircleShape2D" id="CircleShape2D_gliqr"]
+radius = 16.0
+
+[node name="King Of Swtees Bullet" instance=ExtResource("1_bk8n8")]
+damage = 50
+speed = 700
+
+[node name="Bullet Collision" parent="." index="0"]
+shape = SubResource("CircleShape2D_gliqr")
+
+[node name="Bullet OnScreen Notifier" parent="." index="1"]
+position = Vector2(4.76837e-07, 9.53674e-07)
+scale = Vector2(1.7, 1.6)
+
+[node name="Bullet Sprite" parent="." index="2"]
+texture = ExtResource("2_1penj")
+
+[node name="Bullet SFX" parent="." index="3"]
+stream = ExtResource("3_1penj")

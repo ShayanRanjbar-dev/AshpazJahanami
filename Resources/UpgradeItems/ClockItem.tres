@@ -1,0 +1,36 @@
+[gd_resource type="Resource" script_class="UpgradeItem" load_steps=10 format=3 uid="uid://dhxhb8gjay8xb"]
+
+[ext_resource type="Script" uid="uid://c0vpj1xwiupb7" path="res://Resources/Modifiers/BaseModifiers.gd" id="1_l0qcq"]
+[ext_resource type="Script" uid="uid://c6sj8aoq74b62" path="res://Resources/UpgradeItems/_UpgradeItem.gd" id="2_giu1m"]
+[ext_resource type="Resource" uid="uid://dqv8v8ckx7mdt" path="res://Resources/GameData/PlayerDataCable.tres" id="2_j2ql2"]
+[ext_resource type="Texture2D" uid="uid://dxquhr6cbt0vx" path="res://Assets/PNG/clock.png" id="3_uwsrs"]
+[ext_resource type="Script" uid="uid://h6pr56igld2t" path="res://Resources/Modifiers/PlayerModifiers.gd" id="3_w7b16"]
+[ext_resource type="Resource" uid="uid://muee12cy8ro6" path="res://Resources/GameData/EnemyDataCable.tres" id="4_vuon7"]
+[ext_resource type="Script" uid="uid://b484ww51n4vgy" path="res://Resources/Modifiers/EnemyModifiers.gd" id="5_b6r3i"]
+
+[sub_resource type="Resource" id="Resource_j2ql2"]
+script = ExtResource("3_w7b16")
+modifiers = "CloseRotation"
+cable = ExtResource("2_j2ql2")
+modifierType = -1
+metadata/_custom_type_script = "uid://h6pr56igld2t"
+
+[sub_resource type="Resource" id="Resource_w7b16"]
+script = ExtResource("5_b6r3i")
+modifiers = "SpawnTime"
+cable = ExtResource("4_vuon7")
+modifierType = 1
+metadata/_custom_type_script = "uid://b484ww51n4vgy"
+
+[resource]
+script = ExtResource("2_giu1m")
+texture = ExtResource("3_uwsrs")
+Name = "ساعت"
+ProsList = Dictionary[String, ExtResource("1_l0qcq")]({
+"زمان ایجاد دشمن": SubResource("Resource_w7b16")
+})
+ConsList = Dictionary[String, ExtResource("1_l0qcq")]({
+"چرخش سلاح سرد": SubResource("Resource_j2ql2")
+})
+Price = 4
+metadata/_custom_type_script = "uid://c6sj8aoq74b62"

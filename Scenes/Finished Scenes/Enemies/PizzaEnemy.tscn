@@ -1,0 +1,44 @@
+[gd_scene load_steps=8 format=3 uid="uid://bpwhe8s71s1hp"]
+
+[ext_resource type="PackedScene" uid="uid://d3d082b7ywiya" path="res://Scenes/Finished Scenes/Enemies/BaseHealerEnemy.tscn" id="1_0bga7"]
+[ext_resource type="Shader" uid="uid://dohy3mk254ujm" path="res://Shaders/HitFlashShader.gdshader" id="2_dsdhn"]
+
+[sub_resource type="CircleShape2D" id="CircleShape2D_0bga7"]
+radius = 32.0
+
+[sub_resource type="CircleShape2D" id="CircleShape2D_7htta"]
+radius = 30.0
+
+[sub_resource type="CircleShape2D" id="CircleShape2D_dsdhn"]
+radius = 32.0
+
+[sub_resource type="CircleShape2D" id="CircleShape2D_wsoaj"]
+radius = 36.0
+
+[sub_resource type="ShaderMaterial" id="ShaderMaterial_wsoaj"]
+resource_local_to_scene = true
+shader = ExtResource("2_dsdhn")
+shader_parameter/flashValue = 0.0
+shader_parameter/flashColor = Color(1, 1, 1, 1)
+
+[node name="Pizza Enemy" instance=ExtResource("1_0bga7")]
+fullHealth = 200
+damage = 5
+speed = 300
+knockbackStrength = 50
+
+[node name="Enemy Collision" parent="." index="0"]
+shape = SubResource("CircleShape2D_0bga7")
+
+[node name="CollisionShape2D" parent="Enemy Hitbox" index="0"]
+shape = SubResource("CircleShape2D_7htta")
+
+[node name="CollisionShape2D" parent="Enemy Hurtbox" index="0"]
+shape = SubResource("CircleShape2D_dsdhn")
+
+[node name="ShapeCast2D" parent="." index="3"]
+shape = SubResource("CircleShape2D_wsoaj")
+
+[node name="Enemy Sprite" parent="." index="4"]
+material = SubResource("ShaderMaterial_wsoaj")
+region_rect = Rect2(70, 12, 52, 40)

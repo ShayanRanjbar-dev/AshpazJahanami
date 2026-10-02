@@ -1,0 +1,16 @@
+[gd_scene load_steps=4 format=3 uid="uid://bef2n5wrpfh6n"]
+
+[ext_resource type="PackedScene" uid="uid://ll1a1pevemql" path="res://Scenes/Finished Scenes/Weapons/BaseCloseRangeWeapon.tscn" id="1_ji00f"]
+[ext_resource type="Texture2D" uid="uid://27ah12lu6b3x" path="res://Assets/PNG/Plate.png" id="1_qvf0o"]
+
+[sub_resource type="CircleShape2D" id="CircleShape2D_exxq3"]
+radius = 32.0
+
+[node name="Plate" instance=ExtResource("1_ji00f")]
+weaponDamage = 25
+
+[node name="Weapon Collision" parent="." index="0"]
+shape = SubResource("CircleShape2D_exxq3")
+
+[node name="Weapon Sprite" parent="." index="1"]
+texture = ExtResource("1_qvf0o")

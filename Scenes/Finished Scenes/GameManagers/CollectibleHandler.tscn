@@ -1,0 +1,20 @@
+[gd_scene load_steps=5 format=3 uid="uid://cpo5l6ew3of0b"]
+
+[ext_resource type="Script" uid="uid://dm8juggpb11v0" path="res://Scripts/Finished Script/CollectibleHandler.gd" id="1_2swjs"]
+[ext_resource type="PackedScene" uid="uid://cfeupxeowugg8" path="res://Scenes/Finished Scenes/Collectibles/ChefHat.tscn" id="2_mup7l"]
+[ext_resource type="PackedScene" uid="uid://bwbujtevyreeq" path="res://Scenes/Finished Scenes/Collectibles/Money.tscn" id="3_33mtd"]
+[ext_resource type="Resource" uid="uid://jyhtkyoyri3o" path="res://Resources/GameData/CollectibleDataCable.tres" id="4_33mtd"]
+
+[node name="CollectibleHandler" type="Node" node_paths=PackedStringArray("collectibleSpawner", "spawnerTimer")]
+script = ExtResource("1_2swjs")
+collectibleScenes = Array[PackedScene]([ExtResource("2_mup7l"), ExtResource("3_33mtd")])
+collectibleSpawner = NodePath("Collectible Spawner Node")
+spawnerTimer = NodePath("Collectible Spawner Timer")
+collectibleDataCable = ExtResource("4_33mtd")
+
+[node name="Collectible Spawner Node" type="Node2D" parent="."]
+y_sort_enabled = true
+
+[node name="Collectible Spawner Timer" type="Timer" parent="."]
+
+[connection signal="timeout" from="Collectible Spawner Timer" to="." method="CollectibleSpawnerTimeOut"]

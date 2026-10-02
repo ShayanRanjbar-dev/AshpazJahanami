@@ -1,0 +1,7 @@
+[gd_scene load_steps=3 format=3 uid="uid://crwp85f0kgjuu"]
+
+[ext_resource type="PackedScene" uid="uid://bcsq3aq5pet2t" path="res://Scenes/Finished Scenes/Enemies/BaseEnemy.tscn" id="1_0r0c3"]
+[ext_resource type="Script" uid="uid://r1udxukwvhnm" path="res://Scripts/Finished Script/EnemyWanderAi.gd" id="2_fhcfm"]
+
+[node name="Base Wander Enemy" instance=ExtResource("1_0r0c3")]
+script = ExtResource("2_fhcfm")

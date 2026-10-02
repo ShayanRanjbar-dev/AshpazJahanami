@@ -1,0 +1,18 @@
+[gd_resource type="Resource" script_class="WeaponData" load_steps=5 format=3 uid="uid://c305r4uyb1t6y"]
+
+[ext_resource type="PackedScene" uid="uid://vofjvyalryj7" path="res://Scenes/Finished Scenes/Weapons/Chopstick.tscn" id="1_uhrxx"]
+[ext_resource type="Script" uid="uid://bpnrhe66or36n" path="res://Resources/WeaponItems/_WeaponData.gd" id="1_uykwh"]
+[ext_resource type="Texture2D" uid="uid://biao2afiltu2" path="res://Assets/PNG/Chopstick.png" id="2_a6kvb"]
+[ext_resource type="Resource" uid="uid://cs8nkpmd2mw0m" path="res://Achievements/buy_chopstick.tres" id="2_atwkq"]
+
+[resource]
+script = ExtResource("1_uykwh")
+Name = "چاپستیک"
+WeaponTexture = ExtResource("2_a6kvb")
+Scene = ExtResource("1_uhrxx")
+Type = "LongRange"
+Damage = 25
+BuyPrice = 12
+SellPrice = 7
+WeaponAchievement = ExtResource("2_atwkq")
+metadata/_custom_type_script = "uid://bpnrhe66or36n"

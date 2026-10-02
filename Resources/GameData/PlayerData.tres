@@ -1,0 +1,14 @@
+[gd_resource type="Resource" script_class="PlayerData" load_steps=2 format=3 uid="uid://d3qnhxwgvhm8n"]
+
+[ext_resource type="Script" uid="uid://bjcokqsgkkdx4" path="res://Resources/GameData/PlayerDataResource.gd" id="1_rm5mo"]
+
+[resource]
+script = ExtResource("1_rm5mo")
+Speed = 0.0
+Health = 0.0
+Knockback = 0.0
+CloseRotation = 0.0
+CloseDamage = 0.0
+LongDamage = 0.0
+LongSpeed = 0.0
+metadata/_custom_type_script = "uid://bjcokqsgkkdx4"

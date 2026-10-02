@@ -1,0 +1,20 @@
+[gd_scene load_steps=4 format=3 uid="uid://dbrckj058rvb"]
+
+[ext_resource type="Script" uid="uid://cc8hhe0vp7ydt" path="res://Scenes/fps_view.gd" id="1_c322f"]
+[ext_resource type="FontFile" uid="uid://t6chxufkwrg2" path="res://Assets/FONT/editundo.ttf" id="1_ldnmv"]
+
+[sub_resource type="LabelSettings" id="LabelSettings_c322f"]
+font = ExtResource("1_ldnmv")
+font_size = 128
+outline_size = 16
+outline_color = Color(0, 0, 0, 1)
+
+[node name="FPSVIEW" type="CanvasLayer"]
+layer = 100
+script = ExtResource("1_c322f")
+
+[node name="FPS Text" type="Label" parent="."]
+offset_right = 480.0
+offset_bottom = 113.0
+text = "FPS : 00"
+label_settings = SubResource("LabelSettings_c322f")

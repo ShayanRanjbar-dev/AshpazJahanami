@@ -1,0 +1,36 @@
+[gd_resource type="Resource" script_class="UpgradeItem" load_steps=10 format=3 uid="uid://ebxyfshnbkqk"]
+
+[ext_resource type="Script" uid="uid://c0vpj1xwiupb7" path="res://Resources/Modifiers/BaseModifiers.gd" id="1_eaqkq"]
+[ext_resource type="Script" uid="uid://c6sj8aoq74b62" path="res://Resources/UpgradeItems/_UpgradeItem.gd" id="2_mxmiu"]
+[ext_resource type="Resource" uid="uid://dqv8v8ckx7mdt" path="res://Resources/GameData/PlayerDataCable.tres" id="2_wsynh"]
+[ext_resource type="Script" uid="uid://h6pr56igld2t" path="res://Resources/Modifiers/PlayerModifiers.gd" id="3_ec7jy"]
+[ext_resource type="Texture2D" uid="uid://dgjb5ngbrw8pk" path="res://Assets/PNG/ResturantMenu.png" id="3_mxmiu"]
+[ext_resource type="Resource" uid="uid://jyhtkyoyri3o" path="res://Resources/GameData/CollectibleDataCable.tres" id="4_raxc7"]
+[ext_resource type="Script" uid="uid://dieiryxjypc00" path="res://Resources/Modifiers/CollectibleModifiers.gd" id="5_fcf22"]
+
+[sub_resource type="Resource" id="Resource_wsynh"]
+script = ExtResource("3_ec7jy")
+modifiers = "Speed"
+cable = ExtResource("2_wsynh")
+modifierType = -1
+metadata/_custom_type_script = "uid://h6pr56igld2t"
+
+[sub_resource type="Resource" id="Resource_ec7jy"]
+script = ExtResource("5_fcf22")
+modifiers = "ChefHatValue"
+cable = ExtResource("4_raxc7")
+modifierType = 1
+metadata/_custom_type_script = "uid://dieiryxjypc00"
+
+[resource]
+script = ExtResource("2_mxmiu")
+texture = ExtResource("3_mxmiu")
+Name = "منو غذا"
+ProsList = Dictionary[String, ExtResource("1_eaqkq")]({
+"ارزش کلاه": SubResource("Resource_ec7jy")
+})
+ConsList = Dictionary[String, ExtResource("1_eaqkq")]({
+"سرعت": SubResource("Resource_wsynh")
+})
+Price = 4
+metadata/_custom_type_script = "uid://c6sj8aoq74b62"

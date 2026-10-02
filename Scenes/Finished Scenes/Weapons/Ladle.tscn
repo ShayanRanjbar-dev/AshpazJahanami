@@ -1,0 +1,23 @@
+[gd_scene load_steps=4 format=3 uid="uid://dwoyjd8xh4n2g"]
+
+[ext_resource type="PackedScene" uid="uid://celhqg0dm25ha" path="res://Scenes/Finished Scenes/Weapons/BaseLongRangeWeapon.tscn" id="1_bjqc1"]
+[ext_resource type="Texture2D" uid="uid://b6514voaa2ped" path="res://Assets/PNG/Ladle.png" id="2_3kd68"]
+
+[sub_resource type="CircleShape2D" id="CircleShape2D_8ombo"]
+radius = 32.0
+
+[node name="Ladle" instance=ExtResource("1_bjqc1")]
+rangeSpeed = 900
+weaponDamage = 30
+
+[node name="Weapon Collision" parent="." index="0"]
+shape = SubResource("CircleShape2D_8ombo")
+
+[node name="Weapon OnScreen Notifier" parent="." index="1"]
+position = Vector2(0, -1.875)
+scale = Vector2(3.2, 1.2125)
+
+[node name="Weapon Sprite" parent="." index="2"]
+rotation = -1.5708
+texture = ExtResource("2_3kd68")
+offset = Vector2(1, 0)

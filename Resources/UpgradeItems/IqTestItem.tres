@@ -1,0 +1,31 @@
+[gd_resource type="Resource" script_class="UpgradeItem" load_steps=10 format=3 uid="uid://bl3ss0gxahweg"]
+
+[ext_resource type="Script" uid="uid://c6sj8aoq74b62" path="res://Resources/UpgradeItems/_UpgradeItem.gd" id="1_0mses"]
+[ext_resource type="Script" uid="uid://c0vpj1xwiupb7" path="res://Resources/Modifiers/BaseModifiers.gd" id="1_5tjgp"]
+[ext_resource type="Texture2D" uid="uid://be3ewsewo7o0o" path="res://Assets/PNG/iq test.png" id="1_g3bku"]
+[ext_resource type="Script" uid="uid://bu8qa53bmqorh" path="res://addons/cables/scripts/core/cable.gd" id="2_i872j"]
+[ext_resource type="Resource" uid="uid://dqv8v8ckx7mdt" path="res://Resources/GameData/PlayerDataCable.tres" id="3_1w24a"]
+[ext_resource type="Resource" uid="uid://jyhtkyoyri3o" path="res://Resources/GameData/CollectibleDataCable.tres" id="4_ka3vo"]
+[ext_resource type="Resource" uid="uid://muee12cy8ro6" path="res://Resources/GameData/EnemyDataCable.tres" id="5_jy0rw"]
+[ext_resource type="Script" uid="uid://pq11qn4ukw4j" path="res://Resources/Modifiers/CompleteModifiers.gd" id="6_l781x"]
+
+[sub_resource type="Resource" id="Resource_k7cn3"]
+script = ExtResource("6_l781x")
+cableList = Dictionary[String, ExtResource("2_i872j")]({
+"CollectibleData": ExtResource("4_ka3vo"),
+"EnemyData": ExtResource("5_jy0rw"),
+"PlayerData": ExtResource("3_1w24a")
+})
+modifierType = -1
+metadata/_custom_type_script = "uid://pq11qn4ukw4j"
+
+[resource]
+script = ExtResource("1_0mses")
+texture = ExtResource("1_g3bku")
+Name = "تست آیکیو"
+ProsList = Dictionary[String, ExtResource("1_5tjgp")]({})
+ConsList = Dictionary[String, ExtResource("1_5tjgp")]({
+"نصف شدن آپگریدها": SubResource("Resource_k7cn3")
+})
+Price = 1
+metadata/_custom_type_script = "uid://c6sj8aoq74b62"
