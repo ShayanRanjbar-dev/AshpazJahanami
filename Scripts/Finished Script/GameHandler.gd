@@ -96,7 +96,7 @@ func EnterEndlessMode() -> void:
 	GameWaveFinished.emit(gameWave , playerMoney)
 
 func ContinueGame() -> void:
-	player.playerGetHealth(player.fullHealth)
+	#player.playerGetHealth(player.fullHealth)
 	player.PlayerRevive()
 	playerMoney += 50
 	gameWave += 1

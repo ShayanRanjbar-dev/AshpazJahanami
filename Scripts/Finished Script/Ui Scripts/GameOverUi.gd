@@ -28,4 +28,4 @@ func ExitButtonPressed() -> void:
 
 func ContinueButtonPressed() -> void:
 	UiSoundManager.PlayUiSound(UiSoundManager.uiOpenSFX)
-	HelperScript.PlayAds(ContinueGame)
+	ContinueGame(true)
